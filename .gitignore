@@ -1,6 +1,9 @@
 # The directory Mix will write compiled artifacts to.
 /_build/
 
+# Cover any secret configuration files
+/config/*.secret.exs
+
 # If you run "mix test --cover", coverage assets end up here.
 /cover/
 
@@ -20,7 +23,7 @@ erl_crash.dump
 *.ez
 
 # Ignore package tarball (built via "mix hex.build").
-appcenter_dashboard-*.tar
+store-*.tar
 
 # If NPM crashes, it generates a log, let's ignore it too.
 npm-debug.log
@@ -32,3 +35,12 @@ npm-debug.log
 # we ignore priv/static. You may want to comment
 # this depending on your deployment strategy.
 /priv/static/
+
+# Test results
+/test/store_client_errors/
+
+# asdf package manager files
+.tool-versions
+
+# elementary Code and Gedit temporary files
+*~

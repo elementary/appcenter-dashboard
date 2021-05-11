@@ -1,7 +1,7 @@
 {
   "name": "@elementary/appcenter-dashobard",
   "version": "0.1.0",
-  "description": "Dashboard for developers publishing apps to AppCenter",
+  "description": "Developer dashboard for publishing to AppCenter",
   "license": "MIT",
   "private": true,
   "repository": {},
