@@ -14,7 +14,11 @@ config :appcenter_dashboard,
 config :appcenter_dashboard, Elementary.AppcenterDashboardWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "cGznSYCYMRT1JF6D2q1ZDYkYKTo5ZtzjOGi84irFZK8XWSJo44i8yCw8xshuSdYe",
-  render_errors: [view: Elementary.AppcenterDashboardWeb.ErrorView, accepts: ~w(html json), layout: false],
+  render_errors: [
+    view: Elementary.AppcenterDashboardWeb.ErrorView,
+    accepts: ~w(html json),
+    layout: false
+  ],
   pubsub_server: Elementary.AppcenterDashboard.PubSub,
   live_view: [signing_salt: "g4CBNAea"],
   gzip: false
