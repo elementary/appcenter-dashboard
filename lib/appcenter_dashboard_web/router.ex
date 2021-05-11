@@ -17,6 +17,8 @@ defmodule Elementary.AppcenterDashboardWeb.Router do
   scope "/", Elementary.AppcenterDashboardWeb do
     pipe_through :browser
 
+    get "/_health", HealthController, :index
+
     get "/", HomepageController, :index
   end
 
