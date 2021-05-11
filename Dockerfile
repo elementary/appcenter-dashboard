@@ -42,7 +42,7 @@ RUN apk add --no-cache bash openssl
 
 RUN mkdir -p /opt/app
 
-COPY --from=build /opt/app/_build/prod/rel/dashboard /opt/app
+COPY --from=build /opt/app/_build/prod/rel/appcenter_dashboard /opt/app
 
 WORKDIR /opt/app
 
