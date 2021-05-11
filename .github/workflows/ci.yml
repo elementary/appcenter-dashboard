@@ -22,7 +22,7 @@ jobs:
         run: docker-compose build
 
       - name: Format
-        run: docker-compose run store mix format
+        run: docker-compose run dashboard mix format
 
   Lint_Credo:
     name: Lint (Credo)
@@ -36,7 +36,7 @@ jobs:
         run: docker-compose build
 
       - name: Lint
-        run: docker-compose run store mix credo --all
+        run: docker-compose run dashboard mix credo --all
 
   Lint_Eslint:
     name: Lint (ESLint)
@@ -50,7 +50,7 @@ jobs:
         run: docker-compose build
 
       - name: Lint
-        run: docker-compose run -w /opt/app/assets store npm run lint:js
+        run: docker-compose run -w /opt/app/assets dashboard npm run lint:js
 
   Lint_Stylelint:
     name: Lint (Stylelint)
@@ -64,7 +64,7 @@ jobs:
         run: docker-compose build
 
       - name: Lint
-        run: docker-compose run -w /opt/app/assets store npm run lint:css
+        run: docker-compose run -w /opt/app/assets dashboard npm run lint:css
 
   Test_Mix:
     name: Test (Mix)
@@ -78,7 +78,7 @@ jobs:
         run: docker-compose build
 
       - name: Test
-        run: docker-compose run store mix test
+        run: docker-compose run dashboard mix test
 
   Build:
     runs-on: ubuntu-latest
