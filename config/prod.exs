@@ -1,4 +1,4 @@
-use Mix.Config
+import Config
 
 # For production, don't forget to configure the url host
 # to something meaningful, Phoenix uses this information
@@ -10,7 +10,8 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :appcenter_dashboard, Elementary.AppcenterDashboardWeb.Endpoint,
-  url: [host: "example.com", port: 80],
+  url: [scheme: "https", port: 443],
+  http: [port: 4000, transport_options: [socket_opts: [:inet6]]],
   cache_static_manifest: "priv/static/cache_manifest.json",
   gzip: true
 

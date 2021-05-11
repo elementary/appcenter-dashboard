@@ -5,7 +5,7 @@
 # is restricted to this project.
 
 # General application configuration
-use Mix.Config
+import Config
 
 config :appcenter_dashboard,
   ecto_repos: [Elementary.AppcenterDashboard.Repo]
@@ -34,3 +34,12 @@ config :phoenix, :json_library, Jason
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
+
+# Finally import the secret environment specific config. This can be used if a
+# developer has special keys they want to set without worry of being included in
+# git.
+try do
+  import_config "#{Mix.env()}.secret.exs"
+rescue
+  File.Error -> :no_op
+end
