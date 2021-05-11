@@ -1,0 +1,45 @@
+<ul>
+  <li>
+    <p>
+      © <%= dgettext "layout", "%{year} elementary, Inc", year: year() %>
+    </p>
+  </li>
+</ul>
+
+<ul>
+  <li>
+    <a href="https://elementary.io/press" target="_self">
+      <%= dgettext "layout", "Press" %>
+    </a>
+  </li>
+
+  <li>
+    <a href="https://elementary.io/brand" target="_self">
+      <%= dgettext "layout", "Brand" %>
+    </a>
+  </li>
+
+  <li>
+    <a href="https://elementary.io/oem" target="_self">
+      <%= dgettext "layout", "OEMs" %>
+    </a>
+  </li>
+
+  <li>
+    <a href="https://elementary.io/privacy" target="_self">
+      <%= dgettext "layout", "Privacy" %>
+    </a>
+  </li>
+
+  <li>
+    <a href="https://elementary.io/team" target="_self">
+      <%= dgettext "layout", "Team" %>
+    </a>
+  </li>
+
+  <li>
+    <a href="https://elementary.io/open-source" target="_self">
+      <%= dgettext "layout", "Open Source" %>
+    </a>
+  </li>
+</ul>

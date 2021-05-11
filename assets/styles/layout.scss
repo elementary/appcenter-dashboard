@@ -1,0 +1,91 @@
+:root {
+  --page-width: 60rem;
+  --content-width: 50rem;
+}
+
+body {
+  align-content: stretch;
+  align-items: stretch;
+  display: flex;
+  justify-content: stretch;
+}
+
+body > div {
+  align-content: stretch;
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 100%;
+  justify-content: stretch;
+}
+
+body > div > main {
+  flex: 1 0 auto;
+  margin: 0 auto;
+  max-width: var(--page-width);
+  overflow-x: hidden;
+  padding: 0 1rem;
+}
+
+body > div > footer {
+  background-color: var(--secondary-bg-color);
+  display: flex;
+  flex-flow: wrap-reverse;
+  justify-content: space-between;
+  overflow-x: auto;
+  padding: 0 1rem;
+
+  ul {
+    display: inline-block;
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    list-style: none;
+    vertical-align: middle;
+  }
+
+  a {
+    display: inline-block;
+    opacity: 1;
+    padding: 0 0.4rem;
+    text-decoration: none;
+  }
+
+  a,
+  p {
+    color: var(--secondary-fg-color);
+    font-family: var(--ui-font);
+    font-size: 0.6rem;
+    line-height: 3em;
+    margin: 0;
+  }
+
+  .language {
+    align-content: center;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+
+    svg {
+      color: inherit;
+      height: 1.4em;
+      margin-right: 1ch;
+    }
+  }
+}
+
+#nprogress {
+  flex: 0 0 0%;
+  height: 0;
+  width: 0;
+}
+
+@media (min-width: 900px) {
+  body > div > main {
+    padding: 0 2rem;
+  }
+}

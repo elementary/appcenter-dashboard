@@ -1,0 +1,83 @@
+body > div {
+  nav {
+    background-color: var(--header-bg-color);
+    color: var(--header-fg-color);
+    display: flex;
+    fill: var(--header-fg-color);
+    font-size: 0;
+    justify-content: space-between;
+    padding: 0 1rem;
+    overflow-x: auto;
+
+    ul {
+      display: inline-block;
+      flex: 0 0 auto;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      display: inline-block;
+      list-style: none;
+      vertical-align: middle;
+    }
+
+    a,
+    button {
+      color: var(--header-fg-color);
+      display: inline-block;
+      font-family: var(--ui-font);
+      font-size: 0.95rem;
+      line-height: 2.9em;
+      opacity: 1;
+      padding: 0 0.65rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    button {
+      background: none;
+      border: none;
+    }
+
+    svg {
+      height: 1rem;
+
+      * {
+        fill: inherit !important;
+      }
+    }
+
+    .logomark {
+      line-height: 0;
+
+      svg {
+        height: auto;
+      }
+    }
+  }
+
+  nav.secondary {
+    background-color: var(--secondary-bg-color);
+    color: var(--header-fg-color);
+    fill: var(--header-fg-color);
+    flex-wrap: wrap;
+    padding: 0.25rem 1rem;
+
+    a,
+    button {
+      color: var(--secondary-fg-color);
+      font-size: 0.8rem;
+    }
+  }
+
+  nav a:hover {
+    opacity: 0.7;
+  }
+
+  .nav-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+  }
+}
