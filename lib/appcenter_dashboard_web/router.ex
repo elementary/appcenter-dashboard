@@ -20,6 +20,7 @@ defmodule Elementary.AppcenterDashboardWeb.Router do
     get "/_health", HealthController, :index
 
     get "/", HomepageController, :index
+    get "/submissions", SubmissionController, :index
   end
 
   # Other scopes may use custom stacks.
