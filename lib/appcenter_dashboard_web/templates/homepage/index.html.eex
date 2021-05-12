@@ -1,38 +1,44 @@
-<section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>Peace of mind from prototype to production</p>
+<section class="hero">
+  <h1>Publish on AppCenter</h1>
+  <p>The open source, pay-what-you-want app store from elementary</p>
+  <a href="#" class="button suggested">Log in with GitHub</a>
 </section>
 
-<section class="row">
-  <article class="column">
-    <h2>Resources</h2>
-    <ul>
-      <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.5/CHANGELOG.md">v1.5 Changelog</a>
-      </li>
-    </ul>
-  </article>
-  <article class="column">
-    <h2>Help</h2>
-    <ul>
-      <li>
-        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
-      </li>
-      <li>
-        <a href="https://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on Freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
-      </li>
-      <li>
-        <a href="https://elixir-slackin.herokuapp.com/">Elixir on Slack</a>
-      </li>
-    </ul>
-  </article>
+<section class="cards">
+  <a href="https://docs.elementary.io/develop/" class="card">
+    <h2>Get Started</h2>
+    <p>Get a basic app running, built, and ready for distribution with our Getting Started guide</p>
+  </a>
+
+  <a href="https://docs.elementary.io/develop/" class="card">
+    <h2>Design</h2>
+    <p>Learn about the design principles that make up apps on elementary OS</p>
+  </a>
+
+  <a href="https://docs.elementary.io/develop/" class="card">
+    <h2>Reference</h2>
+    <p>Get more info about code style, reporting issues, and proposing design changes</p>
+  </a>
+</section>
+
+<section>
+  <h2>Get In Front of Users</h2>
+  <ul>
+    <li>New apps get featured with a large, branded banner. Plus, trending and recently-updated apps are featured on the front page.</li>
+    <li>Define your app's keywords, categories, and subcategories to help people find it.</li>
+    <li>With built-in social media sharing and app URLs, users can easily share your app right from AppCenter.</li>
+  </ul>
+  <a href="https://docs.elementary.io/develop/writing-apps/untitled#the-desktop-file" target="_blank">Learn more about app metadata</a>
+</section>
+
+<section>
+  <h2>Monetize Your Work With Familiar Tools</h2>
+</section>
+
+<section>
+  <h2>Vala. A Modern, Fast, Open Source Language.</h2>
+</section>
+
+<section>
+  <h2>Download elementary OS</h2>
 </section>
