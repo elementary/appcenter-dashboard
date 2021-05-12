@@ -21,6 +21,7 @@ config :appcenter_dashboard, Elementary.AppcenterDashboardWeb.Endpoint,
   ],
   pubsub_server: Elementary.AppcenterDashboard.PubSub,
   live_view: [signing_salt: "g4CBNAea"],
+  server: true,
   gzip: false
 
 # Configures Elixir's Logger
