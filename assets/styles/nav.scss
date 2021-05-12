@@ -1,9 +1,9 @@
 body > div {
   nav {
-    background-color: var(--header-bg-color);
-    color: var(--header-fg-color);
+    background-color: mix($GRAPE_900, $GRAPE_700, 50%);
+    color: var(--silver-100);
     display: flex;
-    fill: var(--header-fg-color);
+    fill: var(--silver-100);
     font-size: 0;
     justify-content: space-between;
     padding: 0 1rem;
@@ -24,7 +24,7 @@ body > div {
 
     a,
     button {
-      color: var(--header-fg-color);
+      color: var(--silver-100);
       display: inline-block;
       font-family: var(--ui-font);
       font-size: 0.95rem;
@@ -58,7 +58,7 @@ body > div {
   }
 
   nav.secondary {
-    background-color: var(--grape-900);
+    background-color: mix($GRAPE_900, $GRAPE_700, 25%);
     color: white;
     fill: white;
     flex-wrap: wrap;

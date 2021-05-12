@@ -1,19 +1,14 @@
 section {
   display: flex;
   flex-direction: column;
+}
 
-  &.download,
-  &.hero {
-    align-items: center;
-  }
-
-  &.download,
-  &.monetize {
-    background-color: var(--secondary-bg-color);
-  }
+.button {
+  padding: 1em 2em;
 }
 
 .hero {
+  align-items: center;
   background-color: #7a36b1;
   background-image: linear-gradient(to right bottom, var(--grape-900), var(--grape-5  00));
   color: #fff;
@@ -33,23 +28,64 @@ section {
   .button {
     background-color: black;
     color: white;
-    padding: 1em 2em;
   }
 }
 
 .docs {
-  column-gap: 1em;
+  grid-gap: 2em 1em;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-
-  margin-top: -6em;
+  justify-content: space-between;
+  margin: -7em auto 0 auto;
+  max-width: var(--page-width);
+  padding-top: 3em;
+  padding-bottom: 3em;
 
   .card {
-    text-align: center;
+    margin: 0;
 
     h2 {
       color: var(--accent-color);
+      text-align: center;
     }
   }
+}
+
+.pitch-appcenter {
+  display: grid;
+  grid-gap: 3em;
+  justify-content: center;
+  padding-bottom: 6em;
+  padding-top: 6em;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+  max-width: var(--page-width);
+
+  h2 {
+    margin: 0;
+    text-align: left;
+  }
+
+  ul {
+    margin-block-start: 0;
+    padding-inline-start: 1.5em;
+
+    li {
+      line-height: 1.65;
+      margin: 1em 0;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.monetize {
+  background-color: var(--secondary-bg-color);
+}
+
+.download {
+  align-items: center;
+  background-color: var(--secondary-bg-color);
 }
