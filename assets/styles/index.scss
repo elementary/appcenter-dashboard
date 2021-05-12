@@ -1,0 +1,55 @@
+section {
+  display: flex;
+  flex-direction: column;
+
+  &.download,
+  &.hero {
+    align-items: center;
+  }
+
+  &.download,
+  &.monetize {
+    background-color: var(--secondary-bg-color);
+  }
+}
+
+.hero {
+  background-color: #7a36b1;
+  background-image: linear-gradient(to right bottom, var(--grape-900), var(--grape-5  00));
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  padding: 6em 0 10em;
+  row-gap: 1em;
+
+  h1,
+  p {
+    margin: 0;
+  }
+
+  img {
+    filter: drop-shadow(0 12px 24px rgba(255, 255, 255, 0.25));
+  }
+
+  .button {
+    background-color: black;
+    color: white;
+    padding: 1em 2em;
+  }
+}
+
+.docs {
+  column-gap: 1em;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  margin-top: -6em;
+
+  .card {
+    text-align: center;
+
+    h2 {
+      color: var(--accent-color);
+    }
+  }
+}

@@ -58,15 +58,15 @@ body > div {
   }
 
   nav.secondary {
-    background-color: var(--secondary-bg-color);
-    color: var(--header-fg-color);
-    fill: var(--header-fg-color);
+    background-color: var(--grape-900);
+    color: white;
+    fill: white;
     flex-wrap: wrap;
     padding: 0.25rem 1rem;
 
     a,
     button {
-      color: var(--secondary-fg-color);
+      color: white;
       font-size: 0.8rem;
     }
   }

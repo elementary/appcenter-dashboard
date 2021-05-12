@@ -50,6 +50,7 @@
   --black-700: #1a1a1a;
   --black-900: #000;
 
+  --base-color: white;
   --bg-color: white;
   --fg-color: var(--black-500);
   --accent-color: var(--grape-700);
@@ -63,6 +64,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --base-color: var(--black-500);
     --bg-color: var(--black-700);
     --fg-color: var(--silver-300);
     --accent-color: var(--grape-300);

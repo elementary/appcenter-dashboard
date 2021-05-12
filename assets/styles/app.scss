@@ -1,13 +1,14 @@
 @charset "utf-8";
 
 @import "../node_modules/nprogress/nprogress.css";
-@import "colors";
-@import "layout";
-@import "typography";
-@import "nav";
 @import "alert";
 @import "buttons";
 @import "cards";
+@import "colors";
+@import "index";
+@import "layout";
+@import "nav";
+@import "typography";
 
 :root {
   color-scheme: light dark;
