@@ -1,0 +1,16 @@
+<h1>Submit to AppCenter</h1>
+<p>Once confirmed, your app's latest release will be submitted for review and approval by elementary for publishing in AppCenter.</p>
+<p>Future releases/tags of your app will be automatically submitted for review and approval.</p>
+
+<h2>Documentation</h2>
+<p>Stripe key instructions/add key for monetization
+<p>Docs for preparing app
+<p>RDNN/version
+
+<h2>Confirm</h2>
+<ul>
+  <li>Repository: user/reponame</li>
+  <li>Version: 1.2.3</li>
+  <li>Detected RDNN: com.example.rdnn</li>
+</ul>
+<button>Confirm App Submission</button>
