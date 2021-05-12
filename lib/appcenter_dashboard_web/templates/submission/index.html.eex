@@ -1,3 +1,19 @@
-<section class="phx-hero">
-  <h1>submissions</h1>
+<form class="submissions" action="add">
+  <h1>Submit to AppCenter</h1>
+  <label for="repo">
+    <span>Paste a link to your Git repository:</span>
+    <input type="text" placeholder="e.g. https://github.com/YOU/YOUR_APP.git" />
+  </label>
+</form>
+
+<section class="submissions apps">
+  <h2>Recent Apps</h2>
+  <div class="app">
+    <img src="https://developer.elementary.io/images/application-default-icon.png" width="64" height="64" alt="App icon" />
+    <div class="info">
+      <h3>user/reponame 1.2.3</h3>
+      <p>com.example.rdnn</p>
+    </div>
+    <button>Check for releases</button>
+  </div>
 </section>
