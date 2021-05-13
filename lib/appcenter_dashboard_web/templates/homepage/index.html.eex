@@ -24,6 +24,9 @@
 
 <section class="pitch-appcenter">
   <div>
+    <img alt="Screenshot of AppCenter" src="/images/appcenter-screenshot.png">
+  </div>
+  <div>
     <h2>Get In Front of Users</h2>
     <ul>
       <li>New apps get featured with a large, branded banner. Plus, trending and recently-updated apps are featured on the front page.</li>
@@ -31,8 +34,5 @@
       <li>With built-in social media sharing and app URLs, users can easily share your app right from AppCenter.</li>
     </ul>
     <a class="read-more" href="https://docs.elementary.io/develop/writing-apps/untitled#the-desktop-file" target="_blank">Learn more about app metadata</a>
-  </div>
-  <div>
-    <img src="/images/appcenter-screenshot.png">
   </div>
 </section>

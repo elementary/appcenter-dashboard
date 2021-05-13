@@ -4,8 +4,9 @@
   color: white;
   display: flex;
   flex-direction: column;
+  text-align: center;
   text-shadow: 0 1px 2px rgba(black, 0.3);
-  padding: 6em 0 10em;
+  padding: 6em 1em 10em;
   row-gap: 1em;
 
   h1,
@@ -27,27 +28,49 @@
   display: flex;
   grid-gap: 2em;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin: -7em auto 0 auto;
   max-width: var(--page-width);
   padding-top: 3em;
   padding-bottom: 3em;
 
-  .card h2 {
-    color: var(--accent-color);
-    text-align: center;
+  @media (min-width: 700px) {
+    flex-wrap: nowrap;
+  }
+
+  .card {
+    flex-grow: 1;
+    margin-left: auto;
+    margin-right: auto;
+    // Line length feels too wide past here
+    max-width: 25rem;
+
+    h2 {
+      color: var(--accent-color);
+      text-align: center;
+    }
   }
 }
 
 .pitch-appcenter {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   grid-gap: 3em;
   justify-content: space-between;
   margin: 0 auto;
   max-width: var(--page-width);
   padding-bottom: 6em;
   padding-top: 6em;
+
+  @media (min-width: 700px) {
+    flex-wrap: nowrap;
+
+    div:first-child {
+      order: 2;
+    }
+  }
 
   div {
     flex-basis: 100%;
