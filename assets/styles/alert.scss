@@ -18,17 +18,17 @@
 }
 
 .alert--success {
-  background-color: var(--lime-500);
+  background-color: $LIME_500;
 }
 
 .alert--info {
-  background-color: var(--banana-300);
-  color: var(--black-900);
+  background-color: $BANANA_300;
+  color: $BLACK_900;
 }
 
 .alert--error {
-  background-color: var(--strawberry-500);
-  color: var(--silver-100);
+  background-color: $STRAWBERRY_500;
+  color: $SILVER_100;
 }
 
 .alert--bubble {
