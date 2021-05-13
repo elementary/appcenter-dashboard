@@ -3,6 +3,6 @@ i {
   background-repeat: no-repeat;
 
   &.book {
-    background-image: url(/images/book.svg);
+    background-image: url("../static/images/book.svg");
   }
 }

@@ -23,6 +23,7 @@
     "babel-loader": "^8.2.2",
     "copy-webpack-plugin": "^8.0.0",
     "css-loader": "^5.0.0",
+    "file-loader": "^6.2.0",
     "lodash": "^4.17.20",
     "mini-css-extract-plugin": "^1.0.0",
     "node-sass": "^6.0.0",
