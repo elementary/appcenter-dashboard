@@ -78,6 +78,7 @@ $BLACK_900: #000;
   --header-fg-color: #{$SILVER_100};
   --secondary-bg-color: #{mix($SILVER_100, $SILVER_300, 75%)};
   --secondary-fg-color: #{"" + $BLACK_300};
+  --dim-bg-color: #{mix($SILVER_100, $SILVER_300, 95%)};
   --warning-bg-color: #{$BANANA_300};
   --warning-fg-color: #{"" + $BLACK_900};
 }
@@ -89,5 +90,6 @@ $BLACK_900: #000;
     --accent-color: #{$GRAPE_300};
     --secondary-bg-color: #{"" + $BLACK_500};
     --secondary-fg-color: #{$SILVER_300};
+    --dim-bg-color: #{mix($BLACK_700, $BLACK_500, 85%)};
   }
 }
