@@ -1,21 +1,36 @@
 .submissions {
+  > * {
+    margin-left: auto;
+    margin-right: auto;
+    width: var(--content-width);
+  }
+
+  form {
+    text-align: center;
+  }
+
+  label {
+    display: block;
+    margin: 1em auto;
+    text-align: left;
     width: var(--content-width);
 
-    label {
+    span {
       display: block;
-      margin: 1em 0;
-
-      span {
-        display: block;
-        margin-bottom: 0.5em;
-      }
+      margin-bottom: 0.5em;
     }
+  }
 
   input {
     display: block;
     font-size: 1.25em;
     padding: 0.5em;
     width: 100%;
+  }
+
+  .apps {
+    width: var(--content-width);
+    margin: 0 auto;
   }
 
   .app {
@@ -36,5 +51,9 @@
       flex-grow: 1;
       margin: 0 0.5em;
     }
+  }
+
+  .actions {
+    text-align: center;
   }
 }

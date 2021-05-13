@@ -78,7 +78,7 @@ $BLACK_900: #000;
   --header-fg-color: #{$SILVER_100};
   --secondary-bg-color: #{mix($SILVER_100, $SILVER_300, 75%)};
   --secondary-fg-color: #{"" + $BLACK_300};
-  --dim-bg-color: #{mix($SILVER_100, $SILVER_300, 95%)};
+  --dim-bg-color: #{$SILVER_100};
   --warning-bg-color: #{$BANANA_300};
   --warning-fg-color: #{"" + $BLACK_900};
 }
