@@ -88,23 +88,93 @@
   </div>
 </section>
 
-<section>
-  <h2>Vala. A Modern, Fast, Open Source Language.</h2>
-  <div>
-    <img src="" alt=""/>
-    <p>Familiar to anyone who's seen C#, but maintains API/ABI compatibility with C</p>
-  </div>
-  <div>
-    <img src="" alt=""/>
-    <p>Low memory requirements, native execution, and purpose-built for GObject</p>
-  </div>
-  <div>
-    <img src="" alt=""/>
-    <p>Signals, properties, generics, lambdas, assisted memory management, exception handling, type inference, async/yield & more</p>
-  </div>
+<section class="code">
+  <h2>Vala. GTK. Meson. Flatpak.</h2>
+  <p>Code, build, and package with an efficient and modern toolset</p>
 
-  <p>Full API documentation available on<p>
-  <a class="button suggested" href="http://valadoc.elementary.io" target="_blank"><img src="valadoc_logo.svg" alt="Valadoc"/></a>
+  <div>
+    <a href="https://docs.elementary.io/develop/writing-apps/our-first-app" target="_blank" class="card">
+      <pre>
+        <code>
+public class MyApp : Gtk.Application {
+    public MyApp () {
+        Object (
+            application_id: "com.github.myteam.myapp",
+            flags: ApplicationFlags.FLAGS_NONE
+        );
+    }
+
+    protected override void activate () {
+        var window = new Gtk.ApplicationWindow (this) {
+            default_height = 768,
+            default_width = 1024,
+            title = "MyApp"
+        };
+        window.show_all ();
+    }
+
+    public static int main (string[] args) {
+        return new MyApp ().run (args);
+    }
+}
+        </code>
+      </pre>
+    </a>
+
+    <a href="https://docs.elementary.io/develop/writing-apps/our-first-app/the-build-system" target="_blank" class="card">
+      <pre>
+        <code>
+Project('com.github.myteam.myapp', 'vala', 'c')
+
+executable(
+    meson.project_name(),
+    'src/Application.vala',
+    dependencies: [
+        dependency('gtk+-3.0')
+    ],
+    install: true
+)
+
+install_data(
+    join_paths('data', 'myapp.desktop'),
+    install_dir: join_paths(get_option('datadir'), 'applications'),
+    rename: meson.project_name() + '.desktop'
+)
+
+install_data(
+    join_paths('data', 'myapp.appdata.xml'),
+    install_dir: join_paths(get_option('datadir'), 'metainfo'),
+    rename: meson.project_name() + '.appdata.xml'
+)
+        </code>
+      </pre>
+    </a>
+
+    <a href="https://docs.elementary.io/develop/writing-apps/our-first-app/packaging" target="_blank" class="card">
+      <pre>
+        <code>
+app-id: com.github.myteam.myapp
+command: com.github.myteam.myapp
+
+runtime: io.elementary.Platform
+runtime-version: 'daily'
+sdk: io.elementary.Sdk
+
+finish-args:
+  - '--share=ipc'
+  - '--socket=fallback-x11'
+  - '--socket=wayland'
+
+modules:
+  - name: myapp
+    buildsystem: meson
+    sources:
+      - type: dir
+        path: .
+        </code>
+      </pre>
+    </a>
+  </div>
 </section>
 
 <section class="download">
