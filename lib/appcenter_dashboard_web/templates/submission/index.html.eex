@@ -14,7 +14,9 @@
       <h3>user/reponame 1.2.3</h3>
       <p>com.example.rdnn</p>
     </div>
-    <button>Check for Releases</button>
+    <form action="/submissions/status">
+      <button>Check for Releases</button>
+    </form>
   </div>
 
   <div class="app">
@@ -23,7 +25,9 @@
       <h3>user/reponame 1.2.3</h3>
       <p>com.example.rdnn</p>
     </div>
-    <button>Check for Releases</button>
+    <form action="/submissions/status">
+      <button>Check for Releases</button>
+    </form>
   </div>
 
   <div class="app">
@@ -32,6 +36,8 @@
       <h3>user/reponame 1.2.3</h3>
       <p>com.example.rdnn</p>
     </div>
-    <button>Check for Releases</button>
+    <form action="/submissions/status">
+      <button>Check for Releases</button>
+    </form>
   </div>
 </section>

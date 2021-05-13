@@ -28,14 +28,13 @@
       background: var(--dim-bg-color);
     }
 
+    * {
+      margin: 0;
+    }
+
     .info {
       flex-grow: 1;
       margin: 0 0.5em;
-    }
-
-    h3,
-    p {
-      margin: 0;
     }
   }
 }
