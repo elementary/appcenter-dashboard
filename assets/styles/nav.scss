@@ -58,7 +58,7 @@ body > div {
   }
 
   nav.secondary {
-    background-color: var(--secondary-header-bg-color);
+    background-color: var(--secondary-bg-color);
     color: var(--header-fg-color);
     fill: var(--header-fg-color);
     flex-wrap: wrap;
@@ -66,7 +66,7 @@ body > div {
 
     a,
     button {
-      color: var(--secondary-header-fg-color);
+      color: var(--secondary-fg-color);
       font-size: 0.8rem;
     }
   }

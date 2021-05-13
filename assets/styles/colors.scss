@@ -76,8 +76,6 @@ $BLACK_900: #000;
   --accent-color: #{$GRAPE_700};
   --header-bg-color: #{mix($GRAPE_900, $GRAPE_700, 50%)};
   --header-fg-color: #{$SILVER_100};
-  --secondary-header-bg-color: #{mix($GRAPE_900, $GRAPE_700, 25%)};
-  --secondary-header-fg-color: #{$SILVER_100};
   --secondary-bg-color: #{mix($SILVER_100, $SILVER_300, 75%)};
   --secondary-fg-color: #{"" + $BLACK_300};
   --warning-bg-color: #{$BANANA_300};
