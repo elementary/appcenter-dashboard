@@ -22,6 +22,7 @@ defmodule Elementary.AppcenterDashboardWeb.Router do
     get "/", HomepageController, :index
     get "/submissions", SubmissionController, :index
     get "/submissions/add", SubmissionController, :add
+    get "/submissions/status", SubmissionController, :status
   end
 
   # Other scopes may use custom stacks.

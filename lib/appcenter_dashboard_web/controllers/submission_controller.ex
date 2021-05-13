@@ -8,4 +8,8 @@ defmodule Elementary.AppcenterDashboardWeb.SubmissionController do
   def add(conn, _params) do
     render(conn, "add.html")
   end
+
+  def status(conn, _params) do
+    render(conn, "status.html")
+  end
 end

@@ -15,4 +15,6 @@
   <li>Version: <strong>1.2.3</strong></li>
   <li>Detected RDNN: <strong>com.example.rdnn</strong></li>
 </ul>
-<button>Confirm Submission</button>
+<form class="submissions" action="/submissions/status">
+  <button>Confirm Submission</button>
+</form>
