@@ -1,3 +1,5 @@
-<h1>Submit to AppCenter</h1>
-<p>Your app has been submitted and is in review.</p>
-<a href="https://github.com/elementary/appcenter-reviews/pulls" class="button suggested">View Review Queue</a>
+<section class="submissions">
+  <h1>Submit to AppCenter</h1>
+  <p>Your app has been submitted for review and will appear as a pull request in the review queue shortly.</p>
+  <a href="https://github.com/elementary/appcenter-reviews/pulls" class="button suggested">View Review Queue</a>
+</section>
