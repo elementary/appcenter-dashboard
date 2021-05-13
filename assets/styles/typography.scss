@@ -30,12 +30,31 @@ html {
 a {
   color: var(--accent-color);
   opacity: 0.8;
+  text-decoration: none;
   text-decoration-skip-ink: auto;
   transition: opacity 250ms ease;
+
+  &.read-more {
+    font-size: 0.9em;
+
+    &::after {
+      color: inherit;
+      content: "→";
+      display: inline-block;
+      font-style: normal;
+      font-weight: inherit;
+      padding-left: 3px;
+      transition: transform .15s ease-in-out;
+    }
+  }
 
   &:hover,
   &:focus {
     opacity: 1;
+
+    &.read-more::after {
+      transform: translateX(3px)
+    }
   }
 }
 

@@ -1,8 +1,3 @@
-section {
-  display: flex;
-  flex-direction: column;
-}
-
 .button {
   padding: 1em 2em;
 }
@@ -12,6 +7,8 @@ section {
   background-color: #7a36b1;
   background-image: linear-gradient(to right bottom, var(--grape-900), var(--grape-5  00));
   color: #fff;
+  display: flex;
+  flex-direction: column;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   padding: 6em 0 10em;
   row-gap: 1em;
@@ -32,6 +29,7 @@ section {
 }
 
 .docs {
+  display: flex;
   grid-gap: 2em 1em;
   flex-direction: row;
   flex-wrap: wrap;
@@ -54,12 +52,12 @@ section {
 .pitch-appcenter {
   display: grid;
   grid-gap: 3em;
-  justify-content: center;
-  padding-bottom: 6em;
-  padding-top: 6em;
   grid-template-columns: 1fr 1fr;
+  justify-content: center;
   margin: 0 auto;
   max-width: var(--page-width);
+  padding-bottom: 6em;
+  padding-top: 6em;
 
   h2 {
     margin: 0;
@@ -83,9 +81,49 @@ section {
 
 .monetize {
   background-color: var(--secondary-bg-color);
+  display: grid;
+  grid-gap: 3em 1em;
+  padding-bottom: 6em;
+  padding-top: 6em;
+
+  > h2 {
+    margin: 0 auto;
+    max-width: var(--page-width);
+  }
+
+  > div {
+    display: flex;
+    grid-gap: 2em;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: var(--page-width);
+
+    > div {
+      display: grid;
+      grid-gap: 2em;
+      a {
+        text-align: center;
+      }
+
+      .card {
+        margin: 0;
+
+        h2 {
+          color: var(--accent-color);
+          text-align: center;
+        }
+      }
+    }
+  }
 }
 
 .download {
   align-items: center;
   background-color: var(--secondary-bg-color);
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 6em;
+  padding-top: 6em;
 }

@@ -6,22 +6,19 @@
 </section>
 
 <section class="docs">
-  <a href="https://docs.elementary.io/develop/" class="card">
-    <img src="" alt=""/>
-    <h2>Get Started</h2>
-    <p>Get a basic app running, built, and ready for distribution with our Getting Started guide</p>
+  <a href="https://docs.elementary.io/hig/" class="card">
+    <h2>Design</h2>
+    <p>Learn about the design principles we employ with our human interface guidelines</p>
   </a>
 
-  <a href="https://docs.elementary.io/hig/" class="card">
-    <img src="" alt=""/>
-    <h2>Design</h2>
-    <p>Learn about the design principles that make up apps on elementary OS</p>
+  <a href="https://docs.elementary.io/develop/" class="card">
+    <h2>Code</h2>
+    <p>Get a basic app running, built, and ready for distribution with our developer guide</p>
   </a>
 
   <a href="https://elementary.io/docs/code/reference" class="card">
-    <img src="" alt=""/>
-    <h2>Reference</h2>
-    <p>Get more info about code style, reporting issues, and proposing design changes</p>
+    <h2>Contribute</h2>
+    <p>Send feedback or propose changes for the elementary OS platform itself</p>
   </a>
 </section>
 
@@ -41,23 +38,57 @@
 </section>
 
 <section class="monetize">
-  <h2>Monetize Your Work With Familiar Tools</h2>
+  <h2>Monetize and Publish with Familiar Tools</h2>
   <div>
-    <div class="card">
-      <img src="stripe_logo.svg">
+    <div>
+      <div class="card">
+        <h2>Stripe</h2>
+        <div class="banner">
+          <p>Payments are split between you and elementary</p>
+          <p class="split">70 <span>/</span> 30</p><p class="small">with a minimum platform fee of 50¢</p>
+        </div>
+        <ul>
+          <li>Fast, easy pay-what-you-want downloads from users of elementary OS.</li>
+          <li>Powered by Stripe Connect ensuring simplicity, security, and compliance.</li>
+          <li>No enrollment fees or subscription costs.</li>
+        </ul>
+      </div>
+      <a class="read-more" href="https://github.com/elementary/houston/wiki/Monetizing-Your-App" target="_blank">More about monetization</a>
     </div>
-    <a class="read-more" href="https://github.com/elementary/houston/wiki/Submission-Process" target="_blank">Learn more about the submission process</a>
-  </div>
-  <div>
-    <div class="card">
-      <img src="github_logo.svg">
+
+    <div>
+      <div class="card">
+        <h2>GitHub</h2>
+        <div class="banner">
+          <p>Publish without distrupting your workflow</p>
+          <div class="workflow">
+            <div>
+              <i class="fab fa-3x fa-github"></i>
+              <p class="small">Git Tag</p>
+            </div>
+            <i class="fa fa-angle-right"></i>
+            <div>
+              <i class="fas fa-3x fa-cogs"></i>
+              <p class="small">Auto-Review</p>
+            </div>
+            <i class="fa fa-angle-right"></i>
+            <div>
+              <p class="small">Published</p>
+            </div>
+          </div>
+        </div>
+        <ul>
+          <li>Keep issue tracking &amp; release management where you're familiar.</li>
+          <li>Submit updates and see review status in AppCenter Dashboard.</li>
+          <li>Track review feedback with GitHub Issues.</li>
+        </ul>
+      </div>
+      <a class="read-more" href="https://github.com/elementary/houston/wiki/Submission-Process" target="_blank">More about app submission</a>
     </div>
-    <a class="read-more" href="https://github.com/elementary/houston/wiki/Monetizing-Your-App" target="_blank">Learn more about monetizing your app</a>
   </div>
 </section>
 
 <section>
-  <img src="" alt="Vala Logo"/>
   <h2>Vala. A Modern, Fast, Open Source Language.</h2>
   <div>
     <img src="" alt=""/>
