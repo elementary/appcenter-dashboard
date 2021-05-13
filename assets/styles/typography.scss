@@ -82,10 +82,16 @@ h6 {
   opacity: 0.67;
 }
 
-p {
+p,
+li {
   line-height: 1.5;
-  margin: 1.25em auto;
   max-width: var(--content-width);
+}
+
+p,
+ul,
+ol {
+  margin: 1.25em auto;
 }
 
 small {

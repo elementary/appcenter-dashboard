@@ -1,16 +1,18 @@
 <h1>Submit to AppCenter</h1>
-<p>Once confirmed, your app's latest release will be submitted for review and approval by elementary for publishing in AppCenter.</p>
-<p>Future releases/tags of your app will be automatically submitted for review and approval.</p>
+<p>Once confirmed, your app’s latest release will be submitted for review and approval by elementary for publishing in AppCenter.</p>
+<p>Future releases/tags of your app will be automatically submitted for review and approval. Before confirming, ensure your app meets the <a href="https://docs.elementary.io/develop/appcenter/publishing-requirements" target="_blank">Publishing Requirements</a> and has monetization enabled in its AppStream metadata if desired.</p>
 
-<h2>Documentation</h2>
-<p>Stripe key instructions/add key for monetization
-<p>Docs for preparing app
-<p>RDNN/version
+<p>To enable monetization:</p>
+<ul>
+  <li>Set the price as a whole USD value in your app's <code>x-appcenter-suggested-price</code> AppStream key</li>
+  <li>Add this Stripe key to your app's AppStream: <code>pk_foo123bar456baz789bin69420</code></li>
+    <li><a href="">More info</a></li>
+</ul>
 
 <h2>Confirm</h2>
 <ul>
-  <li>Repository: user/reponame</li>
-  <li>Version: 1.2.3</li>
-  <li>Detected RDNN: com.example.rdnn</li>
+  <li>Repository: <strong>user/reponame</strong></li>
+  <li>Version: <strong>1.2.3</strong></li>
+  <li>Detected RDNN: <strong>com.example.rdnn</strong></li>
 </ul>
-<button>Confirm App Submission</button>
+<button>Confirm Submission</button>
