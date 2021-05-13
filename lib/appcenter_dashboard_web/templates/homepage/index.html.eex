@@ -2,21 +2,21 @@
   <img src="https://elementary.io/images/icons/apps/128/system-software-install.svg" alt="AppCenter icon"/>
   <h1>Publish on AppCenter</h1>
   <p>The open source, pay-what-you-want app store from elementary</p>
-  <a href="#" class="button suggested cta">Log in with GitHub</a>
+  <a href="/submissions" class="button suggested cta">Log in with GitHub</a>
 </section>
 
 <section class="docs">
-  <a href="https://docs.elementary.io/hig/" class="card">
+  <a href="https://docs.elementary.io/hig/" class="card" target="_blank">
     <h2>Design</h2>
     <p>Learn about the design principles we employ with our human interface guidelines</p>
   </a>
 
-  <a href="https://docs.elementary.io/develop/" class="card">
+  <a href="https://docs.elementary.io/develop/" class="card" target="_blank">
     <h2>Code</h2>
     <p>Get a basic app running, built, and ready for distribution with our developer guide</p>
   </a>
 
-  <a href="https://elementary.io/docs/code/reference" class="card">
+  <a href="https://docs.elementary.io/contributor-guide/" class="card" target="_blank">
     <h2>Contribute</h2>
     <p>Send feedback or propose changes for the elementary OS platform itself</p>
   </a>

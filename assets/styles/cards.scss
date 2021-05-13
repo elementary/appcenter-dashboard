@@ -3,13 +3,12 @@
   border-radius: 0.25em;
   box-shadow:
     0 0 0 1px rgba(0,0,0,.15),
-    0 8px 10px 1px rgba(0, 0, 0, 0.07),
-    0 3px 14px 2px rgba(0, 0, 0, 0.06),
-    0 5px 5px -3px rgba(0, 0, 0, 0.2);
+    0 8px 10px 1px rgba(black, 0.07),
+    0 3px 14px 2px rgba(black, 0.06),
+    0 5px 5px -3px rgba(black, 0.2);
   color: inherit;
   display: grid;
-  margin: 16px;
-  opacity: 1;
+  opacity: 1; // Needed because links are 0.8 by default
   padding: 1.5em;
   grid-gap: 1em;
   text-decoration: inherit;
@@ -17,7 +16,7 @@
 
   h2,
   p {
-    margin: 0;
+    margin: 0; // We use grid-gap instead
   }
 
   p {
@@ -28,9 +27,9 @@
 a.card:hover,
 a.card:focus {
     box-shadow:
-        0 0 0 1px rgba(0, 0, 0, 0.15),
-        0 12px 20px 1px rgba(0, 0, 0, 0.07),
-        0 5px 28px 2px rgba(0, 0, 0, 0.06),
-        0 8px 10px -3px rgba(0, 0, 0, 0.2);
+        0 0 0 1px rgba(black, 0.15),
+        0 12px 20px 1px rgba(black, 0.07),
+        0 5px 28px 2px rgba(black, 0.06),
+        0 8px 10px -3px rgba(black, 0.2);
     transform: translateY(-2px);
 }

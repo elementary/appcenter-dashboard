@@ -33,13 +33,9 @@
   padding-top: 3em;
   padding-bottom: 3em;
 
-  .card {
-    margin: 0;
-
-    h2 {
-      color: var(--accent-color);
-      text-align: center;
-    }
+  .card h2 {
+    color: var(--accent-color);
+    text-align: center;
   }
 }
 
