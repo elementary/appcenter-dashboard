@@ -71,6 +71,7 @@ $BLACK_700: #1a1a1a;
 $BLACK_900: #000;
 
 :root {
+  --base-color: white;
   --bg-color: white;
   --fg-color: #{$BLACK_500};
   --accent-color: #{$GRAPE_700};
@@ -85,6 +86,7 @@ $BLACK_900: #000;
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --base-color: #{mix($BLACK_300, $BLACK_500, 25%)};
     --bg-color: #{"" + $BLACK_700};
     --fg-color: #{$SILVER_300};
     --accent-color: #{$GRAPE_300};
