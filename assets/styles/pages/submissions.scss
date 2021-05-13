@@ -1,4 +1,6 @@
 .submissions {
+    width: var(--content-width);
+
     label {
       display: block;
       margin: 1em 0;
@@ -20,6 +22,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 1em;
+
+    &:nth-child(odd) {
+      background: var(--secondary-bg-color);
+    }
 
     .info {
       flex-grow: 1;
