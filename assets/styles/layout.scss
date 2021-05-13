@@ -19,10 +19,8 @@ body > div {
   justify-content: stretch;
 }
 
-body > div > main {
+body > div > main > section {
   flex: 1 0 auto;
-  margin: 0 auto;
-  max-width: var(--page-width);
   overflow-x: hidden;
   padding: 0 1rem;
 }
@@ -85,7 +83,7 @@ body > div > footer {
 }
 
 @media (min-width: 900px) {
-  body > div > main {
+  body > div > main > section {
     padding: 0 2rem;
   }
 }
