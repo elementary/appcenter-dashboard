@@ -2,5 +2,5 @@
   <img src="https://elementary.io/images/icons/apps/128/system-software-install.svg" alt="AppCenter icon"/>
   <h1>Publish on AppCenter</h1>
   <p>The open source, pay-what-you-want app store from elementary</p>
-  <a href="#" class="button suggested cta">Log in with GitHub</a>
+  <a href="/submissions" class="button suggested cta">Log in with GitHub</a>
 </section>
