@@ -38,3 +38,37 @@
     text-align: center;
   }
 }
+
+.pitch-appcenter {
+  display: flex;
+  flex-direction: row;
+  grid-gap: 3em;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: var(--page-width);
+  padding-bottom: 6em;
+  padding-top: 6em;
+
+  div {
+    flex-basis: 100%;
+  }
+
+  h2 {
+    margin: 0;
+    text-align: left;
+  }
+
+  ul {
+    margin-block-start: 0;
+    padding-inline-start: 1.5em;
+
+    li {
+      line-height: 1.65;
+      margin: 1em 0;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+}
