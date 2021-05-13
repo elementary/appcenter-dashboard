@@ -24,7 +24,7 @@ body > div {
 
     a,
     button {
-      color: var(--silver-100);
+      color: var(--header-fg-color);
       display: inline-block;
       font-family: var(--ui-font);
       font-size: 0.95rem;
@@ -59,14 +59,14 @@ body > div {
 
   nav.secondary {
     background-color: var(--secondary-bg-color);
-    color: var(--secondary-fg-color);
-    fill: var(--secondary-fg-color);
+    color: var(--header-fg-color);
+    fill: var(--header-fg-color);
     flex-wrap: wrap;
     padding: 0.25rem 1rem;
 
     a,
     button {
-      color: white;
+      color: var(--secondary-fg-color);
       font-size: 0.8rem;
     }
   }
