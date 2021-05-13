@@ -22,3 +22,19 @@
     color: white;
   }
 }
+
+.docs {
+  display: flex;
+  grid-gap: 2em;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: -7em auto 0 auto;
+  max-width: var(--page-width);
+  padding-top: 3em;
+  padding-bottom: 3em;
+
+  .card h2 {
+    color: var(--accent-color);
+    text-align: center;
+  }
+}
