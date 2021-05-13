@@ -40,14 +40,18 @@
 }
 
 .pitch-appcenter {
-  display: grid;
+  display: flex;
+  flex-direction: row;
   grid-gap: 3em;
-  grid-template-columns: 1fr 1fr;
-  justify-content: center;
+  justify-content: space-between;
   margin: 0 auto;
   max-width: var(--page-width);
   padding-bottom: 6em;
   padding-top: 6em;
+
+  div {
+    flex-basis: 100%;
+  }
 
   h2 {
     margin: 0;
