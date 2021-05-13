@@ -94,8 +94,7 @@
 
   <div>
     <a href="https://docs.elementary.io/develop/writing-apps/our-first-app" target="_blank" class="card">
-      <pre>
-        <code>
+      <pre><code>
 public class MyApp : Gtk.Application {
     public MyApp () {
         Object (
@@ -117,13 +116,11 @@ public class MyApp : Gtk.Application {
         return new MyApp ().run (args);
     }
 }
-        </code>
-      </pre>
+        </code></pre>
     </a>
 
     <a href="https://docs.elementary.io/develop/writing-apps/our-first-app/the-build-system" target="_blank" class="card">
-      <pre>
-        <code>
+      <pre><code>
 Project('com.github.myteam.myapp', 'vala', 'c')
 
 executable(
@@ -136,23 +133,21 @@ executable(
 )
 
 install_data(
-    join_paths('data', 'myapp.desktop'),
-    install_dir: join_paths(get_option('datadir'), 'applications'),
+    'data' / 'myapp.desktop',
+    install_dir: get_option('datadir') / 'applications',
     rename: meson.project_name() + '.desktop'
 )
 
 install_data(
-    join_paths('data', 'myapp.appdata.xml'),
-    install_dir: join_paths(get_option('datadir'), 'metainfo'),
+    'data' / 'myapp.appdata.xml',
+    install_dir: get_option('datadir') / 'metainfo',
     rename: meson.project_name() + '.appdata.xml'
 )
-        </code>
-      </pre>
+        </code></pre>
     </a>
 
     <a href="https://docs.elementary.io/develop/writing-apps/our-first-app/packaging" target="_blank" class="card">
-      <pre>
-        <code>
+      <pre><code>
 app-id: com.github.myteam.myapp
 command: com.github.myteam.myapp
 
@@ -171,8 +166,7 @@ modules:
     sources:
       - type: dir
         path: .
-        </code>
-      </pre>
+        </code></pre>
     </a>
   </div>
 </section>
