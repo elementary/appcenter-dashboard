@@ -23,6 +23,10 @@ defmodule Elementary.AppcenterDashboardWeb.Router do
     get "/submissions", SubmissionController, :index
     get "/submissions/add", SubmissionController, :add
     get "/submissions/status", SubmissionController, :status
+
+    get "/auth/:provider", AuthController, :index
+    get "/auth/:provider/callback", AuthController, :callback
+    post "/auth/:provider/callback", AuthController, :callback
   end
 
   # Other scopes may use custom stacks.

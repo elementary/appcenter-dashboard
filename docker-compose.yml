@@ -16,6 +16,8 @@ services:
       - ./priv:/opt/app/priv
     environment:
       - MIX_ENV
+      - GITHUB_CLIENT_ID
+      - GITHUB_CLIENT_SECRET
     depends_on:
       - postgres
     command: mix phx.server

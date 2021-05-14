@@ -40,6 +40,8 @@ defmodule Elementary.AppcenterDashboardWeb do
 
       import Phoenix.LiveView.Helpers
 
+      alias Elementary.AppcenterDashboardWeb.Endpoint
+
       # Include shared imports and aliases for views
       unquote(view_helpers())
     end

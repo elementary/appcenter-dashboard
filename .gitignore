@@ -3,6 +3,8 @@
 
 # Cover any secret configuration files
 /config/*.secret.exs
+/.env
+/*.env
 
 # If you run "mix test --cover", coverage assets end up here.
 /cover/

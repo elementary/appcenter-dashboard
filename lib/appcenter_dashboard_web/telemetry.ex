@@ -1,5 +1,10 @@
 defmodule Elementary.AppcenterDashboardWeb.Telemetry do
+  @moduledoc """
+  Module to map out different telemtry events for reporting.
+  """
+
   use Supervisor
+
   import Telemetry.Metrics
 
   def start_link(arg) do

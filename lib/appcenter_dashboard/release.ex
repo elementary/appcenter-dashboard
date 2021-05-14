@@ -1,4 +1,8 @@
 defmodule Elementary.AppcenterDashboard.Release do
+  @moduledoc """
+  A module to for helpful release tasks.
+  """
+
   @app :appcenter_dashboard
 
   def migrate do
