@@ -36,3 +36,145 @@
     <a class="read-more" href="https://docs.elementary.io/develop/writing-apps/untitled#the-desktop-file" target="_blank">Learn more about app metadata</a>
   </div>
 </section>
+
+<section class="monetize">
+  <h2>Monetize and Publish with Familiar Tools</h2>
+  <div>
+    <div>
+      <div class="card">
+        <h2>Stripe</h2>
+        <div class="banner">
+          <p>Payments are split between you and elementary</p>
+          <p class="split">70 <span>/</span> 30</p><p class="small">with a minimum platform fee of 50¢</p>
+        </div>
+        <ul>
+          <li>Fast, easy pay-what-you-want downloads from users of elementary OS.</li>
+          <li>Powered by Stripe Connect ensuring simplicity, security, and compliance.</li>
+          <li>No enrollment fees or subscription costs.</li>
+        </ul>
+      </div>
+      <a class="read-more" href="https://github.com/elementary/houston/wiki/Monetizing-Your-App" target="_blank">More about monetization</a>
+    </div>
+
+    <div>
+      <div class="card">
+        <h2>GitHub</h2>
+        <div class="banner">
+          <p>Publish without distrupting your workflow</p>
+          <div class="workflow">
+            <div>
+              <i class="fab fa-3x fa-github"></i>
+              <p class="small">Git Tag</p>
+            </div>
+            <i class="fa fa-angle-right"></i>
+            <div>
+              <i class="fas fa-3x fa-cogs"></i>
+              <p class="small">Auto-Review</p>
+            </div>
+            <i class="fa fa-angle-right"></i>
+            <div>
+              <p class="small">Published</p>
+            </div>
+          </div>
+        </div>
+        <ul>
+          <li>Keep issue tracking &amp; release management where you're familiar.</li>
+          <li>Submit updates and see review status in AppCenter Dashboard.</li>
+          <li>Track review feedback with GitHub Issues.</li>
+        </ul>
+      </div>
+      <a class="read-more" href="https://github.com/elementary/houston/wiki/Submission-Process" target="_blank">More about app submission</a>
+    </div>
+  </div>
+</section>
+
+<section class="code">
+  <h2>Vala. GTK. Meson. Flatpak.</h2>
+  <p>Code, build, and package with an efficient and modern toolset</p>
+
+  <div>
+    <a href="https://docs.elementary.io/develop/writing-apps/our-first-app" target="_blank" class="card">
+      <pre><code>
+public class MyApp : Gtk.Application {
+    public MyApp () {
+        Object (
+            application_id: "com.github.myteam.myapp",
+            flags: ApplicationFlags.FLAGS_NONE
+        );
+    }
+
+    protected override void activate () {
+        var window = new Gtk.ApplicationWindow (this) {
+            default_height = 768,
+            default_width = 1024,
+            title = "MyApp"
+        };
+        window.show_all ();
+    }
+
+    public static int main (string[] args) {
+        return new MyApp ().run (args);
+    }
+}
+        </code></pre>
+    </a>
+
+    <a href="https://docs.elementary.io/develop/writing-apps/our-first-app/the-build-system" target="_blank" class="card">
+      <pre><code>
+Project('com.github.myteam.myapp', 'vala', 'c')
+
+executable(
+    meson.project_name(),
+    'src/Application.vala',
+    dependencies: [
+        dependency('gtk+-3.0')
+    ],
+    install: true
+)
+
+install_data(
+    'data' / 'myapp.desktop',
+    install_dir: get_option('datadir') / 'applications',
+    rename: meson.project_name() + '.desktop'
+)
+
+install_data(
+    'data' / 'myapp.appdata.xml',
+    install_dir: get_option('datadir') / 'metainfo',
+    rename: meson.project_name() + '.appdata.xml'
+)
+        </code></pre>
+    </a>
+
+    <a href="https://docs.elementary.io/develop/writing-apps/our-first-app/packaging" target="_blank" class="card">
+      <pre><code>
+app-id: com.github.myteam.myapp
+command: com.github.myteam.myapp
+
+runtime: io.elementary.Platform
+runtime-version: 'daily'
+sdk: io.elementary.Sdk
+
+finish-args:
+  - '--share=ipc'
+  - '--socket=fallback-x11'
+  - '--socket=wayland'
+
+modules:
+  - name: myapp
+    buildsystem: meson
+    sources:
+      - type: dir
+        path: .
+        </code></pre>
+    </a>
+  </div>
+</section>
+
+<section class="download">
+  <img src="https://elementary.io/images/icons/places/128/distributor-logo.svg" alt="Logo"/>
+  <h2>Download elementary OS</h2>
+  <p>Build and release your apps for the latest version of elementary OS. Hera brings new APIs, improved notifications, a new location agent, new Granite CSS constants, new icons, and tons more. Build feature-full apps easier than ever with Gtk 3.22 &amp; Vala 0.40.</p>
+  <a class="read-more" href="https://blog.elementary.io/introducing-elementary-os-5-1-hera/" target="_blank">Read the release notes</a>
+  <a class="button suggested" href="https://elementary.io/">Pay What You Want</a>
+</section>
