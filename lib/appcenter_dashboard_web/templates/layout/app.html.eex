@@ -1,6 +1,5 @@
 <div>
   <%= render Elementary.AppcenterDashboardWeb.LayoutView, "primary-nav.html", assigns %>
-  <%= render Elementary.AppcenterDashboardWeb.LayoutView, "secondary-nav.html", assigns %>
 
   <%= if get_flash(@conn, :info) do %>
     <div class="alert alert--success" role="alert">
