@@ -36,3 +36,40 @@
     <a class="read-more" href="https://docs.elementary.io/develop/writing-apps/untitled#the-desktop-file" target="_blank">Learn more about app metadata</a>
   </div>
 </section>
+
+<section class="monetize">
+  <h2>Monetize and Publish with Familiar Tools</h2>
+  <div>
+    <div>
+      <div class="card">
+        <h2>Stripe</h2>
+        <div class="banner">
+          <p>Payments are split between you and elementary</p>
+          <p class="split">70 <span>/</span> 30</p><p class="small">with a minimum platform fee of 50¢</p>
+        </div>
+        <ul>
+          <li>Fast, easy, pay-what-you-want downloads.</li>
+          <li>Stripe Connect ensures simplicity, security, and compliance.</li>
+          <li>No enrollment fees or subscription costs.</li>
+        </ul>
+      </div>
+      <a class="read-more" href="https://github.com/elementary/houston/wiki/Monetizing-Your-App" target="_blank">More about monetization</a>
+    </div>
+
+    <div>
+      <div class="card">
+        <h2>GitHub</h2>
+        <div class="banner">
+          <p>Publish without distrupting your workflow</p>
+          <p class="workflow">Link > Git Tag > Review</p>
+        </div>
+        <ul>
+          <li>Link Git repos to watch in AppCenter Dashboard.</li>
+          <li>Keep issue tracking &amp; release management where you're familiar.</li>
+          <li>Track review feedback with GitHub Pull Requests.</li>
+        </ul>
+      </div>
+      <a class="read-more" href="https://github.com/elementary/houston/wiki/Submission-Process" target="_blank">More about app submission</a>
+    </div>
+  </div>
+</section>
