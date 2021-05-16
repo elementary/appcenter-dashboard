@@ -90,7 +90,7 @@ $BLACK_900: #000;
     --bg-color: #{"" + $BLACK_700};
     --fg-color: #{$SILVER_300};
     --accent-color: #{$GRAPE_300};
-    --secondary-bg-color: #{"" + $BLACK_500};
+    --secondary-bg-color: #{mix($BLACK_700, $BLACK_500, 75%)};
     --secondary-fg-color: #{$SILVER_300};
     --dim-bg-color: #{mix($BLACK_700, $BLACK_500, 85%)};
   }
