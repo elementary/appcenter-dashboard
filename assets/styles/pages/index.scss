@@ -95,3 +95,71 @@
     width: 100%;
   }
 }
+
+.monetize {
+  background-color: var(--secondary-bg-color);
+  display: grid;
+  grid-gap: 3em 1em;
+  padding-bottom: 6em;
+  padding-top: 6em;
+
+  > h2 {
+    margin: 0 auto;
+    max-width: var(--page-width);
+  }
+
+  > div {
+    display: flex;
+    grid-gap: 6em;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: var(--page-width);
+
+    > div {
+      flex-basis: 100%;
+
+      a {
+        display: block;
+        margin-top: 2em;
+        text-align: center;
+      }
+
+      .card {
+        margin: 0;
+
+        h2 {
+          color: var(--accent-color);
+          text-align: center;
+        }
+
+        .banner {
+          background-color: $GRAPE_700;
+          color: white;
+          margin: 0 -1.5em;
+          padding: 1.5em;
+          text-align: center;
+
+          .small {
+            font-size: 0.8em;
+          }
+
+          .workflow,
+          .split {
+            font-weight: 300;
+          }
+
+          .workflow {
+            font-size: 2em;
+            margin: 0.5em 0;
+          }
+
+          .split {
+            font-size: 3em;
+            margin: 0.25em 0;
+          }
+        }
+      }
+    }
+  }
+}
