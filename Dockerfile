@@ -11,6 +11,7 @@ WORKDIR /opt/app
 ENV MIX_ENV=prod
 
 RUN apk --no-cache --update add \
+  cargo \
   g++ \
   gcc \
   git \
@@ -18,7 +19,8 @@ RUN apk --no-cache --update add \
   make \
   nodejs \
   nodejs-npm \
-  python3
+  python3 \
+  rust
 
 RUN cd /opt/app && \
   mix local.hex --force && \
