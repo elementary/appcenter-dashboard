@@ -38,11 +38,24 @@ defmodule Elementary.AppcenterDashboardWeb do
       import Phoenix.Controller,
         only: [get_flash: 1, get_flash: 2, view_module: 1, view_template: 1]
 
-      import Phoenix.LiveView.Helpers
-
-      alias Elementary.AppcenterDashboardWeb.Endpoint
-
       # Include shared imports and aliases for views
+      unquote(view_helpers())
+    end
+  end
+
+  def live_view do
+    quote do
+      use Phoenix.LiveView,
+        layout: {Elementary.AppcenterDashboardWeb.LayoutView, "live.html"}
+
+      unquote(view_helpers())
+    end
+  end
+
+  def live_component do
+    quote do
+      use Phoenix.LiveComponent
+
       unquote(view_helpers())
     end
   end
@@ -60,6 +73,7 @@ defmodule Elementary.AppcenterDashboardWeb do
   def channel do
     quote do
       use Phoenix.Channel
+
       import Elementary.AppcenterDashboardWeb.Gettext
     end
   end
@@ -70,11 +84,12 @@ defmodule Elementary.AppcenterDashboardWeb do
       use Phoenix.HTML
 
       # Import basic rendering functionality (render, render_layout, etc)
+      import Elementary.AppcenterDashboardWeb.Gettext
+      import Phoenix.LiveView.Helpers
       import Phoenix.View
 
-      import Elementary.AppcenterDashboardWeb.ErrorHelpers
-      import Elementary.AppcenterDashboardWeb.Gettext
-
+      alias Elementary.AppcenterDashboardWeb.Endpoint
+      alias Elementary.AppcenterDashboardWeb.Gettext, as: Gtext
       alias Elementary.AppcenterDashboardWeb.Router.Helpers, as: Routes
     end
   end

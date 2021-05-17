@@ -19,6 +19,10 @@ body > div {
   justify-content: stretch;
 }
 
+body > div > main {
+  flex: 1 0 auto;
+}
+
 body > div > main > section {
   flex: 1 0 auto;
   overflow-x: hidden;
