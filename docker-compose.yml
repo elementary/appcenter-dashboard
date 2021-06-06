@@ -18,15 +18,6 @@ services:
       - MIX_ENV
       - GITHUB_CLIENT_ID
       - GITHUB_CLIENT_SECRET
-    depends_on:
-      - postgres
     command: mix phx.server
     working_dir: /opt/app
-    network_mode: host
-
-  postgres:
-    image: postgres
-    environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: appcenter_dashboard_dev
     network_mode: host

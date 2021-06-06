@@ -11,8 +11,6 @@ defmodule Elementary.AppcenterDashboard.Application do
     children = [
       # Start the HTTP client pools
       {Finch, name: FinchPool},
-      # Start the Ecto repository
-      Elementary.AppcenterDashboard.Repo,
       # Start the Appstream parsing process
       {Elementary.AppcenterDashboard.Appstream, appstream_config},
       # Start the Telemetry supervisor

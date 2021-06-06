@@ -10,8 +10,7 @@ import Config
 config :appcenter_dashboard,
   appstream: [
     file: "https://flatpak.elementary.io/repo/appstream/x86_64/appstream.xml.gz",
-  ],
-  ecto_repos: [Elementary.AppcenterDashboard.Repo]
+  ]
 
 # Configures the endpoint
 config :appcenter_dashboard, Elementary.AppcenterDashboardWeb.Endpoint,
