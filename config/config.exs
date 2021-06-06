@@ -7,9 +7,6 @@
 # General application configuration
 import Config
 
-config :appcenter_dashboard,
-  ecto_repos: [Elementary.AppcenterDashboard.Repo]
-
 # Configures the endpoint
 config :appcenter_dashboard, Elementary.AppcenterDashboardWeb.Endpoint,
   url: [host: "localhost"],

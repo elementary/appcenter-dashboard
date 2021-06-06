@@ -7,8 +7,6 @@ defmodule Elementary.AppcenterDashboard.Application do
 
   def start(_type, _args) do
     children = [
-      # Start the Ecto repository
-      Elementary.AppcenterDashboard.Repo,
       # Start the Telemetry supervisor
       Elementary.AppcenterDashboardWeb.Telemetry,
       # Start the PubSub system
