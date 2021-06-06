@@ -6,8 +6,6 @@ defmodule Elementary.AppcenterDashboard.Appstream do
 
   use GenServer
 
-  import Meeseeks.CSS
-
   def start_link(opts) do
     GenServer.start_link(__MODULE__, opts)
   end
@@ -53,8 +51,9 @@ defmodule Elementary.AppcenterDashboard.Appstream do
       |> File.stream!([{:read_ahead, 100_000}, :compressed])
       |> Enum.to_list()
       |> IO.iodata_to_binary()
-      |> Meeseeks.all(css("component"))
-      |> Enum.map(&parse_appstream_data/1)
+      |> Floki.parse_document!()
+      |> Floki.find("component")
+      |> Enum.map(&parse_appstream_data(&1, state))
 
     File.rmdir(local_dir)
 
@@ -63,13 +62,39 @@ defmodule Elementary.AppcenterDashboard.Appstream do
     {:noreply, Map.put(state, :data, appstream_data)}
   end
 
-  defp parse_appstream_data(appstream) do
-    name = Meeseeks.one(appstream, css("name"))
-    rdnn = Meeseeks.one(appstream, css("id"))
+  defp parse_appstream_data(component, config) do
+    name =
+      component
+      |> Floki.find("name")
+      |> Floki.filter_out(%Floki.Selector{
+        attributes: [
+          %Floki.Selector.AttributeSelector{
+            attribute: "xml:lang"
+          }
+        ]
+      })
+      |> Floki.text()
+
+    rdnn =
+      component
+      |> Floki.find("id")
+      |> Enum.at(0)
+      |> Floki.text()
+
+    icon_filename =
+      component
+      |> Floki.find("icon[type=\"cached\"][width=\"64\"]")
+      |> Floki.text()
+
+    icon_path =
+      if icon_filename != "",
+        do: Path.join([config.opts[:icons], "64x64", icon_filename]),
+        else: nil
 
     %{
-      name: Meeseeks.text(name),
-      rdnn: Meeseeks.text(rdnn)
+      name: name,
+      rdnn: rdnn,
+      icon: icon_path
     }
   end
 end

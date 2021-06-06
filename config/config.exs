@@ -10,6 +10,7 @@ import Config
 config :appcenter_dashboard,
   appstream: [
     file: "https://flatpak.elementary.io/repo/appstream/x86_64/appstream.xml.gz",
+    icons: "https://flatpak.elementary.io/repo/appstream/x86_64/icons/"
   ]
 
 # Configures the endpoint

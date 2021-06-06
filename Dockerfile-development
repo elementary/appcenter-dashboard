@@ -1,7 +1,7 @@
 # Dockerfile
 # A dockerfile for development
 
-FROM elixir:1.11-alpine
+FROM elixir:1.12-alpine
 
 RUN mkdir -p /opt/app
 
@@ -10,7 +10,6 @@ WORKDIR /opt/app
 
 RUN apk --no-cache --update add \
   bash \
-  cargo \
   g++ \
   gcc \
   git \
@@ -18,9 +17,7 @@ RUN apk --no-cache --update add \
   libc-dev \
   make \
   nodejs \
-  nodejs-npm \
-  python3 \
-  rust
+  nodejs-npm
 
 RUN cd /opt/app && \
   mix local.hex --force && \

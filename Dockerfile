@@ -1,7 +1,7 @@
 # Dockerfile
 # Building for production
 
-FROM elixir:1.11-alpine as build
+FROM elixir:1.12-alpine as build
 
 RUN mkdir -p /opt/app
 
@@ -11,16 +11,13 @@ WORKDIR /opt/app
 ENV MIX_ENV=prod
 
 RUN apk --no-cache --update add \
-  cargo \
   g++ \
   gcc \
   git \
   libc-dev \
   make \
   nodejs \
-  nodejs-npm \
-  python3 \
-  rust
+  nodejs-npm
 
 RUN cd /opt/app && \
   mix local.hex --force && \
@@ -38,7 +35,7 @@ RUN mix release
 # Dockerfile
 # Runing in production
 
-FROM elixir:1.11-alpine as release
+FROM elixir:1.12-alpine as release
 
 RUN apk add --no-cache bash openssl
 
