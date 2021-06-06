@@ -21,13 +21,14 @@ defmodule Elementary.AppcenterDashboardWeb.Endpoint do
     from: :appcenter_dashboard,
     gzip: Application.get_env(:appcenter_dashboard, __MODULE__)[:gzip]
 
+  plug Elementary.AppcenterDashboardWeb.HealthcheckPlug
+
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :appcenter_dashboard
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,
