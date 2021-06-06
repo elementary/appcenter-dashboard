@@ -6,7 +6,13 @@ defmodule Elementary.AppcenterDashboard.Application do
   use Application
 
   def start(_type, _args) do
+    appstream_config = Application.get_env(:appcenter_dashboard, :appstream)
+
     children = [
+      # Start the HTTP client pools
+      {Finch, name: FinchPool},
+      # Start the Appstream parsing process
+      {Elementary.AppcenterDashboard.Appstream, appstream_config},
       # Start the Telemetry supervisor
       Elementary.AppcenterDashboardWeb.Telemetry,
       # Start the PubSub system

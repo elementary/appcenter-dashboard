@@ -7,6 +7,11 @@
 # General application configuration
 import Config
 
+config :appcenter_dashboard,
+  appstream: [
+    file: "https://flatpak.elementary.io/repo/appstream/x86_64/appstream.xml.gz",
+  ]
+
 # Configures the endpoint
 config :appcenter_dashboard, Elementary.AppcenterDashboardWeb.Endpoint,
   url: [host: "localhost"],
