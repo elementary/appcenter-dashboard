@@ -11,6 +11,10 @@ defmodule Elementary.AppcenterDashboard.Application do
     children = [
       # Start the HTTP client pools
       {Finch, name: FinchPool},
+      # Start the Project supervisor and registry
+      {Registry, keys: :unique, name: Elementary.AppcenterDashboard.ProjectRegistry},
+      {DynamicSupervisor,
+       strategy: :one_for_one, name: Elementary.AppcenterDashboard.ProjectSupervisor},
       # Start the Appstream parsing process
       {Elementary.AppcenterDashboard.Appstream, appstream_config},
       # Start the Telemetry supervisor
