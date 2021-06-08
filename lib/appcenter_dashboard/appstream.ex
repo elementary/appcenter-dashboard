@@ -6,6 +6,14 @@ defmodule Elementary.AppcenterDashboard.Appstream do
 
   use GenServer
 
+  alias Elementary.AppcenterDashboard.Project
+
+  @type t :: %{
+          name: String.t(),
+          rdnn: String.t(),
+          icon: String.t()
+        }
+
   def start_link(opts) do
     GenServer.start_link(__MODULE__, opts)
   end
@@ -13,6 +21,7 @@ defmodule Elementary.AppcenterDashboard.Appstream do
   @doc """
   Returns Appstream data for a given RDNN
   """
+  @spec find(Project.t()) :: t() | nil
   def find(rdnn) do
     GenServer.call(__MODULE__, {:find, rdnn})
   end
@@ -25,7 +34,7 @@ defmodule Elementary.AppcenterDashboard.Appstream do
 
   @impl true
   def handle_call({:find, rdnn}, _from, state) do
-    found_appstream = Enum.find(state.appstream, &(&1.rdnn == rdnn))
+    found_appstream = Enum.find(state.data, &(&1.rdnn == rdnn))
     {:reply, found_appstream, state}
   end
 
@@ -54,15 +63,26 @@ defmodule Elementary.AppcenterDashboard.Appstream do
       |> Floki.parse_document!()
       |> Floki.find("component")
       |> Enum.map(&parse_appstream_data(&1, state))
+      |> Enum.group_by(& &1.rdnn)
+      |> Map.values()
+      |> Enum.map(fn appstream_datas ->
+        Enum.reduce(appstream_datas, %{}, &Map.merge/2)
+      end)
+
+    Enum.each(appstream_data, fn appstream_data ->
+      with {:ok, pid} <- Project.find_or_start_pid(appstream_data.rdnn) do
+        Project.update(pid, appstream_data)
+      end
+    end)
 
     File.rmdir(local_dir)
 
-    Process.send_after(self(), :refresh, 24 * 60 * 60 * 1000)
+    Process.send_after(self(), :refresh, 15 * 60 * 1000)
 
     {:noreply, Map.put(state, :data, appstream_data)}
   end
 
-  defp parse_appstream_data(component, config) do
+  defp parse_appstream_data(component, state) do
     name =
       component
       |> Floki.find("name")
@@ -88,7 +108,7 @@ defmodule Elementary.AppcenterDashboard.Appstream do
 
     icon_path =
       if icon_filename != "",
-        do: Path.join([config.opts[:icons], "64x64", icon_filename]),
+        do: Path.join([state.opts[:icons], "64x64", icon_filename]),
         else: nil
 
     %{
