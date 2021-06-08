@@ -5,6 +5,16 @@ defmodule Elementary.AppcenterDashboard.Project do
   Appstream data from the flatpak repository, and user input.
   """
 
+  defstruct [
+    :name,
+    :rdnn,
+    :icon,
+    :released_version,
+    :released_at,
+    :reviewing_version,
+    :reviewing_at
+  ]
+
   use GenServer
 
   alias Elementary.AppcenterDashboard.Appstream
@@ -13,6 +23,15 @@ defmodule Elementary.AppcenterDashboard.Project do
   @supervisor Elementary.AppcenterDashboard.ProjectSupervisor
 
   @type rdnn :: String.t()
+  @type t :: %{
+          name: String.t(),
+          rdnn: rdnn,
+          icon: String.t(),
+          released_version: Version.t(),
+          released_at: DateTime.t(),
+          reviewing_version: Version.t(),
+          reviewing_at: DateTime.t()
+        }
 
   @doc """
   Starts a new project process to monitor information about the project.
@@ -51,6 +70,18 @@ defmodule Elementary.AppcenterDashboard.Project do
   end
 
   @doc """
+  Grabs information about the project
+  """
+  @spec info(pid()) :: t()
+  def info(pid), do: GenServer.call(pid, :info)
+
+  @doc """
+  Updates information about a project
+  """
+  @spec update(pid(), map) :: :ok
+  def update(pid, info), do: GenServer.call(pid, {:update, info})
+
+  @doc """
   Starts a new GenServer project process.
   """
   @spec start_link(Keyword.t()) :: {:ok, pid()}
@@ -63,12 +94,22 @@ defmodule Elementary.AppcenterDashboard.Project do
   Runs right after the new process is created. Fetches the initial data for
   the project.
   """
+  @impl true
   def init(opts) do
-    state = %{
-      rdnn: Keyword.fetch!(opts, :rdnn),
-      last_change: DateTime.utc_now()
-    }
+    {:ok,
+     %__MODULE__{
+       rdnn: Keyword.fetch!(opts, :rdnn)
+     }}
+  end
 
-    {:ok, state}
+  @impl true
+  def handle_call(:info, _from, state) do
+    {:reply, state, state}
+  end
+
+  @impl true
+  def handle_call({:update, new_info}, _from, state) do
+    updated_state = struct(state, new_info)
+    {:reply, updated_state, updated_state}
   end
 end

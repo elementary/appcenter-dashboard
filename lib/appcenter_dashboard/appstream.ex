@@ -6,7 +6,9 @@ defmodule Elementary.AppcenterDashboard.Appstream do
 
   use GenServer
 
-  @type appstream_data :: %{
+  alias Elementary.AppcenterDashboard.Project
+
+  @type t :: %{
           name: String.t(),
           rdnn: String.t(),
           icon: String.t()
@@ -19,6 +21,7 @@ defmodule Elementary.AppcenterDashboard.Appstream do
   @doc """
   Returns Appstream data for a given RDNN
   """
+  @spec find(Project.t()) :: t() | nil
   def find(rdnn) do
     GenServer.call(__MODULE__, {:find, rdnn})
   end
@@ -60,6 +63,17 @@ defmodule Elementary.AppcenterDashboard.Appstream do
       |> Floki.parse_document!()
       |> Floki.find("component")
       |> Enum.map(&parse_appstream_data(&1, state))
+      |> Enum.group_by(& &1.rdnn)
+      |> Map.values()
+      |> Enum.map(fn appstream_datas ->
+        Enum.reduce(appstream_datas, %{}, &Map.merge/2)
+      end)
+
+    Enum.each(appstream_data, fn appstream_data ->
+      with {:ok, pid} <- Project.find_or_start_pid(appstream_data.rdnn) do
+        Project.update(pid, appstream_data)
+      end
+    end)
 
     File.rmdir(local_dir)
 
