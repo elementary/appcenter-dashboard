@@ -21,4 +21,9 @@ defmodule Elementary.AppcenterDashboard.GitHubServiceTest do
     uri = URI.parse("https://github.com/elementary/")
     assert {:error, "Unable to parse GitHub path"} = GitHubService.create_connection(uri)
   end
+
+  test "create_connection/1 errors out GitHub url without a path" do
+    uri = URI.parse("https://github.com")
+    assert {:error, "Unable to parse GitHub path"} = GitHubService.create_connection(uri)
+  end
 end

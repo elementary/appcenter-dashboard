@@ -1,11 +1,7 @@
 <section class="submissions">
   <h1>Submit to AppCenter</h1>
-  <form action="/submissions/add">
-    <label for="repo">
-      <span>Paste a link to your Git repository:</span>
-      <input type="text" placeholder="e.g. https://github.com/YOU/YOUR_APP.git" />
-    </label>
-  </form>
+
+  <%= live_render(@conn, Elementary.AppcenterDashboardWeb.SubmissionFormLive) %>
 
   <div class="apps">
     <h2>Recent Apps</h2>

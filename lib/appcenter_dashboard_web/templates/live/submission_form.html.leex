@@ -1,0 +1,35 @@
+<form
+  action="/submissions/add"
+  class="submitting"
+  phx-change="input"
+  phx-submit="submit"
+  phx-blur="submit"
+>
+  <label for="url">
+    Paste a link to your Git repository:
+  </label>
+
+  <input
+    autocomplete="off"
+    autofocus
+    id="url"
+    name="url"
+    phx-debounce="100"
+    placeholder="e.g. https://github.com/YOU/YOUR_APP.git"
+    type="url"
+    value="<%= @url %>"
+  />
+
+  <%= if not is_nil(@error) do %>
+    <span class="hint">
+      <%= @error %>
+    </span>
+  <% end %>
+
+  <input
+    <%= if not is_nil(@error) do %>disabled<% end %>
+    phx-disable-with="Submitting"
+    type="submit"
+    value="submit"
+  />
+</form>

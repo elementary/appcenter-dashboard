@@ -3,6 +3,11 @@
   --content-width: 50rem;
 }
 
+html,
+body {
+  min-height: 100vh;
+}
+
 body {
   align-content: stretch;
   align-items: stretch;
@@ -19,8 +24,11 @@ body > div {
   justify-content: stretch;
 }
 
-body > div > main > section {
+body > div > main {
   flex: 1 0 auto;
+}
+
+body > div > main > section {
   overflow-x: hidden;
   padding: 0 1rem;
 }

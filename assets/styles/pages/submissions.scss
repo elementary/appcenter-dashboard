@@ -5,27 +5,42 @@
     width: var(--content-width);
   }
 
-  form {
-    text-align: center;
-  }
-
-  label {
-    display: block;
-    margin: 1em auto;
+  form.submitting {
+    display: grid;
+    grid-gap: 0.5em;
+    grid-template-areas:
+      "label label"
+      "input button"
+      "hint hint";
+    grid-template-columns: 1fr auto;
+    justify-content: stretch;
+    margin: 1em 0;
     text-align: left;
-    width: var(--content-width);
 
-    span {
+    label {
       display: block;
-      margin-bottom: 0.5em;
+      grid-area: label;
     }
-  }
 
-  input {
-    display: block;
-    font-size: 1.25em;
-    padding: 0.5em;
-    width: 100%;
+    input {
+      display: block;
+      font-size: 1.25em;
+      grid-area: input;
+      padding: 0.5em;
+      width: 100%;
+    }
+
+    span.hint {
+      color: var(--error-fg-color);
+      display: block;
+      font-size: 0.8em;
+      grid-area: hint;
+    }
+
+    input[type="submit"] {
+      grid-area: button;
+      margin: 0;
+    }
   }
 
   .apps {
