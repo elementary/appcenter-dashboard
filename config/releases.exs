@@ -17,7 +17,7 @@ secret_key_base =
     You can generate one by calling: mix phx.gen.secret
     """
 
-config :appcenter_dashboard, Elementary.AppcenterDashboard.Endpoint,
+config :appcenter_dashboard, Elementary.AppcenterDashboardWeb.Endpoint,
   url: [host: domain],
   http: [
     port: String.to_integer(System.get_env("PORT") || "4000"),
