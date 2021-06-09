@@ -28,6 +28,16 @@ defmodule Elementary.AppcenterDashboardWeb do
     end
   end
 
+  def live_view do
+    quote do
+      use Phoenix.LiveView
+
+      import Elementary.AppcenterDashboardWeb.Gettext
+
+      alias Elementary.AppcenterDashboardWeb.Router.Helpers, as: Routes
+    end
+  end
+
   def view do
     quote do
       use Phoenix.View,

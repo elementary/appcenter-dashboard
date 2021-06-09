@@ -17,12 +17,16 @@ defmodule Elementary.AppcenterDashboard.GitHubService do
   """
   @impl true
   @spec create_connection(URI.t()) :: {:ok, t()} | {:error, any}
-  def create_connection(%{path: path}) do
+  def create_connection(%{path: path}) when is_binary(path) do
     case String.split(path, "/", parts: 3, trim: true) do
       [owner, repository, _others] -> {:ok, %{owner: owner, repository: repository}}
       [owner, repository] -> {:ok, %{owner: owner, repository: repository}}
       _ -> {:error, "Unable to parse GitHub path"}
     end
+  end
+
+  def create_connection(_uri) do
+    {:error, "Unable to parse GitHub path"}
   end
 
   @doc """

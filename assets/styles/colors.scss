@@ -82,6 +82,7 @@ $BLACK_900: #000;
   --dim-bg-color: #{$SILVER_100};
   --warning-bg-color: #{$BANANA_300};
   --warning-fg-color: #{"" + $BLACK_900};
+  --error-fg-color: #{$STRAWBERRY_900};
 }
 
 @media (prefers-color-scheme: dark) {
@@ -93,5 +94,6 @@ $BLACK_900: #000;
     --secondary-bg-color: #{mix($BLACK_700, $BLACK_500, 75%)};
     --secondary-fg-color: #{$SILVER_300};
     --dim-bg-color: #{mix($BLACK_700, $BLACK_500, 85%)};
+    --error-fg-color: #{$STRAWBERRY_700};
   }
 }
