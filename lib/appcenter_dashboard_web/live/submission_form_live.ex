@@ -7,24 +7,6 @@ defmodule Elementary.AppcenterDashboardWeb.SubmissionFormLive do
 
   alias Elementary.AppcenterDashboard.Service
 
-  def mount(%{"url" => url}, _session, socket) do
-    case Service.create_connection(url) do
-      {:error, message} ->
-        {:ok,
-         assign(socket,
-           url: url,
-           error: message
-         )}
-
-      {:ok, connection} ->
-        {:ok,
-         assign(socket,
-           url: url,
-           error: nil
-         )}
-    end
-  end
-
   def mount(_params, _session, socket) do
     {:ok,
      assign(socket,
@@ -33,25 +15,17 @@ defmodule Elementary.AppcenterDashboardWeb.SubmissionFormLive do
      )}
   end
 
-  def handle_event("input", %{"url" => url}, socket) do
-    {:noreply,
-     assign(socket,
-       url: url,
-       error: nil
-     )}
-  end
-
-  def handle_event("submit", %{"url" => ""}, socket) do
+  def handle_event("validate", %{"url" => ""}, socket) do
     {:noreply, assign(socket, error: "Please enter a valid URL")}
   end
 
-  def handle_event("submit", %{"url" => url}, socket) do
+  def handle_event("validate", %{"url" => url}, socket) do
     case Service.create_connection(url) do
       {:error, message} ->
         {:noreply, assign(socket, url: url, error: message)}
 
       {:ok, connection} ->
-        {:noreply, push_redirect(socket, to: Routes.submission_path(socket, :add))}
+        {:noreply, assign(socket, url: url, error: nil)}
     end
   end
 

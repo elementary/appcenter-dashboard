@@ -1,10 +1,8 @@
-<form
-  action="/submissions/add"
-  class="submitting"
-  phx-change="input"
-  phx-submit="submit"
-  phx-blur="submit"
->
+<%= f = form_for :submitting, Routes.submission_path(Endpoint, :add), [
+  class: "submitting",
+  phx_change: "validate",
+  phx_blur: "validate"
+] %>
   <label for="url">
     Paste a link to your Git repository:
   </label>
@@ -18,6 +16,7 @@
     placeholder="e.g. https://github.com/YOU/YOUR_APP.git"
     type="url"
     value="<%= @url %>"
+    required
   />
 
   <%= if not is_nil(@error) do %>

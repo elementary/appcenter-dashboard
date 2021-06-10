@@ -15,6 +15,10 @@ defmodule Elementary.AppcenterDashboardWeb.SubmissionController do
     render(conn, "status.html")
   end
 
+  def get(conn, _params) do
+    redirect(conn, to: Routes.submission_path(conn, :index))
+  end
+
   defp ensure_logged_in(conn, _options) do
     case get_session(conn, :current_user) do
       nil ->
