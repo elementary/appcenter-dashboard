@@ -46,8 +46,8 @@ defmodule Elementary.AppcenterDashboard.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:telemetry_metrics, "~> 0.4"},
       {:telemetry_poller, "~> 0.4"},
-      {:ueberauth_github, "~> 0.8"},
-      {:ueberauth, "~> 0.6"}
+      {:ueberauth_github, "~> 0.7"},
+      {:ueberauth, "~> 0.7", override: true}
     ]
   end
 
