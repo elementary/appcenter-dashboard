@@ -20,7 +20,7 @@ defmodule Elementary.AppcenterDashboardWeb.SubmissionFormLive do
   end
 
   def handle_event("validate", %{"url" => url}, socket) do
-    case Service.create_connection(url) do
+    case Service.parse(url) do
       {:error, message} ->
         {:noreply, assign(socket, url: url, error: message)}
 

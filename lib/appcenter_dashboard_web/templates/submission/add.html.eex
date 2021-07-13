@@ -12,9 +12,9 @@
 
   <h2>Confirm</h2>
   <ul>
-    <li>Repository: <strong>user/reponame</strong></li>
-    <li>Version: <strong>1.2.3</strong></li>
-    <li>Detected RDNN: <strong>com.example.rdnn</strong></li>
+    <li>Repository: <strong><%= @friendly_name %></strong></li>
+    <li>Version: <strong><%= @release.major %>.<%= @release.minor %>.<%= @release.patch %></strong></li>
+    <li>Detected RDNN: <strong><%= @rdnn %></strong></li>
   </ul>
   <form action="/submissions/status">
     <button class="suggested">Confirm Submission</button>
