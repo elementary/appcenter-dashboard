@@ -17,6 +17,8 @@ defmodule Elementary.AppcenterDashboard.Application do
        strategy: :one_for_one, name: Elementary.AppcenterDashboard.ProjectSupervisor},
       # Start the Appstream parsing process
       {Elementary.AppcenterDashboard.Appstream, appstream_config},
+      # Start the Git review repository process
+      Elementary.AppcenterDashboard.Reviews,
       # Start the Telemetry supervisor
       Elementary.AppcenterDashboardWeb.Telemetry,
       # Start the PubSub system

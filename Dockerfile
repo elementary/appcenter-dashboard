@@ -37,7 +37,7 @@ RUN mix release
 
 FROM elixir:1.12-alpine as release
 
-RUN apk add --no-cache bash openssl
+RUN apk add --no-cache bash git openssl
 
 RUN mkdir -p /opt/app
 

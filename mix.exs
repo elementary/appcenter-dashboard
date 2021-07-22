@@ -34,6 +34,7 @@ defmodule Elementary.AppcenterDashboard.MixProject do
   defp deps do
     [
       {:credo, "~> 1.5.4", only: :dev, runtime: false},
+      {:git_cli, "~> 0.3"},
       {:finch, "~> 0.7"},
       {:floki, ">= 0.30.0"},
       {:gettext, "~> 0.11"},
