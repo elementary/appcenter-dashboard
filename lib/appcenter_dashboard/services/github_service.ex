@@ -40,8 +40,9 @@ defmodule Elementary.AppcenterDashboard.GitHubService do
          {:ok, version} <- Version.parse(version_tag) do
       {:ok, version}
     else
-      {:error, 404} -> {:error, "Project does not have a stable release"}
+      {:ok, %{status: 404}} -> {:error, "Project does not have a stable release"}
       :error -> {:error, "Latest release is not SemVer"}
+      _ -> {:error, "Unable to get the latest release"}
     end
   end
 end
