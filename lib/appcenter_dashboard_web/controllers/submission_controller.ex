@@ -2,11 +2,16 @@ defmodule Elementary.AppcenterDashboardWeb.SubmissionController do
   use Elementary.AppcenterDashboardWeb, :controller
 
   alias Elementary.AppcenterDashboard.Service
+  alias Elementary.AppcenterDashboardWeb.RecentProjectsHelper
 
   plug :ensure_logged_in
 
   def index(conn, _params) do
-    render(conn, "index.html")
+    recent_projects = RecentProjectsHelper.list_projects(conn)
+
+    render(conn, "index.html", %{
+      recent_projects: recent_projects
+    })
   end
 
   def add(conn, %{"url" => url}) do
@@ -15,6 +20,7 @@ defmodule Elementary.AppcenterDashboardWeb.SubmissionController do
          {:ok, rdnn} <- Service.default_rdnn(connection),
          {:ok, release} <- Service.latest_release(connection) do
       render(conn, "add.html", %{
+        url: url,
         friendly_name: name,
         release: release,
         rdnn: rdnn
@@ -27,8 +33,12 @@ defmodule Elementary.AppcenterDashboardWeb.SubmissionController do
     end
   end
 
-  def status(conn, _params) do
-    render(conn, "status.html")
+  def status(conn, %{"url" => url}) do
+    with {:ok, connection} <- Service.parse(url) do
+      conn
+      |> RecentProjectsHelper.add_project(url)
+      |> render("status.html")
+    end
   end
 
   def get(conn, _params) do

@@ -11,12 +11,20 @@
   </ul>
 
   <h2>Confirm</h2>
+
   <ul>
     <li>Repository: <strong><%= @friendly_name %></strong></li>
     <li>Version: <strong><%= @release.major %>.<%= @release.minor %>.<%= @release.patch %></strong></li>
     <li>Detected RDNN: <strong><%= @rdnn %></strong></li>
   </ul>
-  <form action="/submissions/status">
-    <button class="suggested">Confirm Submission</button>
-  </form>
+
+  <%= form_for @conn, Routes.submission_path(Endpoint, :status), fn f -> %>
+    <%= hidden_input f, :url, value: @url %>
+
+    <input
+      class="button suggested"
+      type="submit"
+      value="Confirm Submission"
+    />
+  <% end %>
 </section>

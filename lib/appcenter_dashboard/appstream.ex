@@ -6,7 +6,7 @@ defmodule Elementary.AppcenterDashboard.Appstream do
 
   use GenServer
 
-  alias Elementary.AppcenterDashboard.Project
+  alias Elementary.AppcenterDashboard.Projects
 
   @type t :: %{
           name: String.t(),
@@ -18,24 +18,10 @@ defmodule Elementary.AppcenterDashboard.Appstream do
     GenServer.start_link(__MODULE__, opts)
   end
 
-  @doc """
-  Returns Appstream data for a given RDNN
-  """
-  @spec find(Project.t()) :: t() | nil
-  def find(rdnn) do
-    GenServer.call(__MODULE__, {:find, rdnn})
-  end
-
   @impl true
   def init(opts) do
-    Process.send_after(self(), :refresh, 0)
-    {:ok, %{opts: opts}}
-  end
-
-  @impl true
-  def handle_call({:find, rdnn}, _from, state) do
-    found_appstream = Enum.find(state.data, &(&1.rdnn == rdnn))
-    {:reply, found_appstream, state}
+    Process.send_after(self(), :refresh, 2000)
+    {:ok, %{components: [], opts: opts}}
   end
 
   @doc """
@@ -50,12 +36,13 @@ defmodule Elementary.AppcenterDashboard.Appstream do
     local_compressed_file = Path.join(local_dir, "appstream.xml.gz")
 
     {:ok, response} =
-      Finch.build(:get, remote_url)
+      :get
+      |> Finch.build(remote_url)
       |> Finch.request(FinchPool)
 
     File.write!(local_compressed_file, response.body)
 
-    appstream_data =
+    components =
       local_compressed_file
       |> File.stream!([{:read_ahead, 100_000}, :compressed])
       |> Enum.to_list()
@@ -69,17 +56,17 @@ defmodule Elementary.AppcenterDashboard.Appstream do
         Enum.reduce(appstream_datas, %{}, &Map.merge/2)
       end)
 
-    Enum.each(appstream_data, fn appstream_data ->
-      with {:ok, pid} <- Project.find_or_start_pid(appstream_data.rdnn) do
-        Project.update(pid, appstream_data)
-      end
-    end)
-
+    Enum.each(components, &update_project/1)
     File.rmdir(local_dir)
+    Process.send_after(self(), :refresh, 5 * 60 * 1000)
 
-    Process.send_after(self(), :refresh, 15 * 60 * 1000)
+    {:noreply, Map.put(state, :components, components)}
+  end
 
-    {:noreply, Map.put(state, :data, appstream_data)}
+  defp update_project(component) do
+    if pid = Projects.find(:rdnn, component.rdnn) do
+      Projects.update(pid, component)
+    end
   end
 
   defp parse_appstream_data(component, state) do

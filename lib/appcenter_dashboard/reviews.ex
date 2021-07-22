@@ -6,11 +6,13 @@ defmodule Elementary.AppcenterDashboard.Reviews do
 
   use GenServer
 
+  alias Elementary.AppcenterDashboard.{Projects, Service}
+
   @type t :: %{
           rdnn: String.t(),
           source: String.t(),
-          version: Version.t(),
-          commit: String.t()
+          commit: String.t(),
+          released_version: Version.t()
         }
 
   @repository_directory "appcenter-reviews"
@@ -22,24 +24,10 @@ defmodule Elementary.AppcenterDashboard.Reviews do
     GenServer.start_link(__MODULE__, opts)
   end
 
-  @doc """
-  Returns latest release information for an rdnn
-  """
-  @spec latest(String.t()) :: t() | nil
-  def latest(rdnn) do
-    GenServer.call(__MODULE__, {:find, rdnn})
-  end
-
   @impl true
   def init(opts) do
     Process.send_after(self(), :refresh, 0)
     {:ok, %{releases: [], opts: opts}}
-  end
-
-  @impl true
-  def handle_call({:find, rdnn}, _from, state) do
-    found_appstream = Enum.find(state.releases, &(&1.rdnn == rdnn))
-    {:reply, found_appstream, state}
   end
 
   @doc """
@@ -53,11 +41,24 @@ defmodule Elementary.AppcenterDashboard.Reviews do
         |> Path.join(@repository_file_glob)
         |> Path.wildcard()
         |> Enum.map(&parse_file!/1)
+        |> Enum.group_by(&Map.get(&1, :rdnn))
+        |> Enum.map(fn {_rdnn, releases} ->
+          releases
+          |> Enum.sort_by(&Map.get(&1, :version))
+          |> List.last()
+        end)
 
-      Process.send_after(self(), :refresh, 15 * 60 * 1000)
+      Enum.each(releases, &update_project/1)
+      Process.send_after(self(), :refresh, 5 * 60 * 1000)
 
       {:noreply, Map.put(state, :releases, releases)}
     end
+  end
+
+  defp update_project(release) do
+    release.source
+    |> Projects.ensure_created()
+    |> Projects.update(release)
   end
 
   defp parse_file!(path) do
@@ -71,11 +72,18 @@ defmodule Elementary.AppcenterDashboard.Reviews do
     binary = File.read!(path)
     file = Jason.decode!(binary)
 
+    {:ok, source} =
+      file
+      |> Map.get("source")
+      |> Service.parse()
+
+    {:ok, source} = Service.normalize_source(source)
+
     %{
       rdnn: rdnn,
-      source: Map.get(file, "source"),
-      version: Version.parse!(version),
-      commit: Map.get(file, "commit")
+      source: source,
+      commit: Map.get(file, "commit"),
+      released_version: Version.parse!(version)
     }
   end
 

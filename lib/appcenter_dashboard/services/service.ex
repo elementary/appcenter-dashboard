@@ -73,7 +73,7 @@ defmodule Elementary.AppcenterDashboard.Service do
   @doc """
   Gives a human readable version of the repository data.
   """
-  @spec friendly_name(t()) :: {:ok, Project.rdnn()} | {:error, any}
+  @spec friendly_name(t()) :: {:ok, String.t()} | {:error, any}
   def friendly_name(%{service: service} = connection) do
     @services
     |> Map.get(service)
@@ -83,11 +83,21 @@ defmodule Elementary.AppcenterDashboard.Service do
   @doc """
   Returns a default RDNN string for a project
   """
-  @spec default_rdnn(t()) :: {:ok, Project.rdnn()} | {:error, any}
+  @spec default_rdnn(t()) :: {:ok, String.t()} | {:error, any}
   def default_rdnn(%{service: service} = connection) do
     @services
     |> Map.get(service)
     |> apply(:default_rdnn, [connection])
+  end
+
+  @doc """
+  Returns a default RDNN string for a project
+  """
+  @spec normalize_source(t()) :: {:ok, String.t()} | {:error, any}
+  def normalize_source(%{service: service} = connection) do
+    @services
+    |> Map.get(service)
+    |> apply(:normalize_source, [connection])
   end
 
   @doc """

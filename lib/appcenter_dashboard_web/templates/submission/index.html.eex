@@ -3,39 +3,15 @@
 
   <%= live_render(@conn, Elementary.AppcenterDashboardWeb.SubmissionFormLive) %>
 
-  <div class="apps">
-    <h2>Recent Apps</h2>
-    <div class="app">
-      <img src="/images/application-default-icon.svg" width="64" height="64" alt="App icon" />
-      <div class="info">
-        <h3>user/reponame 1.2.3</h3>
-        <p>com.example.rdnn</p>
-      </div>
-      <form action="/submissions/status">
-        <button>Check for Releases</button>
-      </form>
-    </div>
+  <%= if length(@recent_projects) > 0 do %>
+    <div class="apps">
+      <h2>Recent Apps</h2>
 
-    <div class="app">
-      <img src="/images/application-default-icon.svg" width="64" height="64" alt="App icon" />
-      <div class="info">
-        <h3>user/reponame 1.2.3</h3>
-        <p>com.example.rdnn</p>
-      </div>
-      <form action="/submissions/status">
-        <button>Check for Releases</button>
-      </form>
+      <%= for url <- @recent_projects do %>
+        <%= live_render(@conn, Elementary.AppcenterDashboardWeb.RecentProjectLive, session: %{
+          "url" => url
+        }) %>
+      <% end %>
     </div>
-
-    <div class="app">
-      <img src="/images/application-default-icon.svg" width="64" height="64" alt="App icon" />
-      <div class="info">
-        <h3>user/reponame 1.2.3</h3>
-        <p>com.example.rdnn</p>
-      </div>
-      <form action="/submissions/status">
-        <button>Check for Releases</button>
-      </form>
-    </div>
-  </div>
+  <% end %>
 </section>

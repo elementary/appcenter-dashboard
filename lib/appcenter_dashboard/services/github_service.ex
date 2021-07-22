@@ -5,13 +5,17 @@ defmodule Elementary.AppcenterDashboard.GitHubService do
 
   @behaviour Elementary.AppcenterDashboard.Service
 
-  @parse_regex ~r/^\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)/
+  @parse_regex ~r/^\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)$/
 
   @impl true
   def parse(%{path: path}) when is_binary(path) do
     case Regex.run(@parse_regex, path) do
-      [_path, owner, repository | _extra] -> {:ok, %{owner: owner, repository: repository}}
-      _ -> {:error, "Unable to parse GitHub path"}
+      [_path, owner, repository | _extra] ->
+        repository = String.replace_trailing(repository, ".git", "")
+        {:ok, %{owner: owner, repository: repository}}
+
+      _ ->
+        {:error, "Unable to parse GitHub path"}
     end
   end
 
@@ -29,20 +33,35 @@ defmodule Elementary.AppcenterDashboard.GitHubService do
   end
 
   @impl true
-  def latest_release(%{owner: owner, repository: repository}) do
+  def normalize_source(%{owner: owner, repository: repository}) do
+    {:ok, "https://github.com/#{owner}/#{repository}"}
+  end
+
+  @impl true
+  def latest_release(%{owner: owner, repository: repository} = connection) do
     request =
       Finch.build(:get, "https://api.github.com/repos/#{owner}/#{repository}/releases/latest")
 
     with {:ok, %{status: status, body: body}} when status in 200..299 <-
-           Finch.request(request, FinchPool),
-         {:ok, response} <- Jason.decode(body),
-         version_tag <- Map.get(response, "tag_name", ""),
+           get_latest_release(connection),
+         version_tag <- Map.get(body, "tag_name", ""),
          {:ok, version} <- Version.parse(version_tag) do
       {:ok, version}
     else
       {:ok, %{status: 404}} -> {:error, "Project does not have a stable release"}
+      {:ok, %{body: %{message: message}}} -> {:error, message}
       :error -> {:error, "Latest release is not SemVer"}
-      _ -> {:error, "Unable to get the latest release"}
+      _res -> {:error, "Unable to get the latest release"}
+    end
+  end
+
+  defp get_latest_release(%{owner: owner, repository: repository}) do
+    request =
+      Finch.build(:get, "https://api.github.com/repos/#{owner}/#{repository}/releases/latest")
+
+    with {:ok, %{body: body} = res} <- Finch.request(request, FinchPool),
+         {:ok, response} <- Jason.decode(body) do
+      {:ok, Map.put(res, :body, response)}
     end
   end
 end

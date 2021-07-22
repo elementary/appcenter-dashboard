@@ -1,0 +1,35 @@
+<div class="app">
+  <%= if not is_nil(@info.icon) do %>
+    <img src="<%= @info.icon %>" width="64" height="64" alt="App icon" />
+  <% else %>
+    <img src="/images/application-default-icon.svg" width="64" height="64" alt="App icon" />
+  <% end %>
+
+  <div class="info">
+    <h3>
+      <%= Map.get(@info, :name, Map.get(@info, :source)) %>
+
+      <%= if not is_nil(@info.released_version) do %>
+        <%= @info.released_version.major %>.<%= @info.released_version.minor %>.<%= @info.released_version.patch %>
+      <% end %>
+    </h3>
+
+    <%= if not is_nil(@info.rdnn) do %>
+      <p><%= @info.rdnn %></p>
+    <% end %>
+  </div>
+
+  <button
+    phx-click="refresh"
+    phx-disable-with="Checking for Releases"
+    <%= if not is_nil(@info.reviewing_version) or is_nil(@info.released_version) do %>
+      disabled
+    <% end %>
+  >
+    <%= if not is_nil(@info.reviewing_version) or is_nil(@info.released_version) do %>
+      Processing Releasing
+    <% else %>
+      Check for Releases
+    <% end %>
+  </button>
+</div>
