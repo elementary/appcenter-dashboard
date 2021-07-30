@@ -1,7 +1,7 @@
-defmodule Elementary.AppcenterDashboard.Reviews do
+defmodule Elementary.AppcenterDashboard.Repository do
   @moduledoc """
-  A GenServer that handles all of the Appstream parsing from the deployed
-  repository.
+  A GenServer that handles all of the git repository parsing from the deployed
+  reviews repository.
   """
 
   use GenServer
@@ -18,7 +18,7 @@ defmodule Elementary.AppcenterDashboard.Reviews do
   @repository_directory "appcenter-reviews"
   @repository_url "https://github.com/elementary/appcenter-reviews"
   @repository_branch "main"
-  @repository_file_glob "applications/**/*.json"
+  @repository_file_glob "applications/*.json"
 
   def start_link(opts) do
     GenServer.start_link(__MODULE__, opts)
@@ -62,12 +62,12 @@ defmodule Elementary.AppcenterDashboard.Reviews do
   end
 
   defp parse_file!(path) do
-    [version, rdnn] =
+    [rdnn] =
       path
       |> Path.rootname()
       |> Path.split()
       |> Enum.reverse()
-      |> Enum.take(2)
+      |> Enum.take(1)
 
     binary = File.read!(path)
     file = Jason.decode!(binary)
@@ -83,7 +83,7 @@ defmodule Elementary.AppcenterDashboard.Reviews do
       rdnn: rdnn,
       source: source,
       commit: Map.get(file, "commit"),
-      released_version: Version.parse!(version)
+      released_version: file |> Map.get("version") |> Version.parse!()
     }
   end
 

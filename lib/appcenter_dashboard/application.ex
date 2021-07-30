@@ -18,7 +18,7 @@ defmodule Elementary.AppcenterDashboard.Application do
       # Start the Appstream parsing process
       {Elementary.AppcenterDashboard.Appstream, appstream_config},
       # Start the Git review repository process
-      Elementary.AppcenterDashboard.Reviews,
+      Elementary.AppcenterDashboard.Repository,
       # Start the Telemetry supervisor
       Elementary.AppcenterDashboardWeb.Telemetry,
       # Start the PubSub system
