@@ -19,12 +19,18 @@ defmodule Elementary.AppcenterDashboardWeb.RecentProjectsHelper do
   Adds a project to the user's recent projects.
   """
   def add_project(conn, url) do
-    new_list =
-      conn
-      |> list_projects()
-      |> List.insert_at(0, url)
-      |> Enum.take(5)
+    current = list_projects(conn)
+    exists? = Enum.member?(current, url)
 
-    put_session(conn, :projects, new_list)
+    if exists? do
+      conn
+    else
+      new_list =
+        current
+        |> List.insert_at(0, url)
+        |> Enum.take(5)
+
+      put_session(conn, :projects, new_list)
+    end
   end
 end

@@ -2,7 +2,7 @@
   <h1>Submit to AppCenter</h1>
   <p>Your app has been submitted for review and will appear as a pull request in the review queue shortly.</p>
   <div class="actions">
-    <a href="/" class="button">Return Home</a>
+    <a href="<%= Routes.submission_path(@conn, :index) %>" class="button">Return Home</a>
     <a href="https://github.com/elementary/appcenter-reviews/pulls" class="button suggested">View Review Queue</a>
   </div>
 </section>

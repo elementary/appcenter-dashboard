@@ -3,20 +3,28 @@ defmodule Elementary.AppcenterDashboard.Projects do
   Handles the higher level supervising and functions for projects.
   """
 
-  alias Elementary.AppcenterDashboard.Project
+  alias Elementary.AppcenterDashboard.{Project, Service}
 
   @registry Elementary.AppcenterDashboard.ProjectRegistry
   @supervisor Elementary.AppcenterDashboard.ProjectSupervisor
 
   def ensure_created(source) do
-    case Registry.lookup(@registry, source) do
+    {:ok, normalized_source} = normalize_source(source)
+
+    case Registry.lookup(@registry, normalized_source) do
       [{_, pid}] ->
         pid
 
       [] ->
-        {:ok, pid} = DynamicSupervisor.start_child(@supervisor, {Project, source})
-        Registry.register(@registry, source, pid)
+        {:ok, pid} = DynamicSupervisor.start_child(@supervisor, {Project, normalized_source})
+        Registry.register(@registry, normalized_source, pid)
         pid
+    end
+  end
+
+  defp normalize_source(source) do
+    with {:ok, connection} <- Service.parse(source) do
+      Service.normalize_source(connection)
     end
   end
 
