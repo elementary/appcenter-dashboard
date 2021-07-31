@@ -24,7 +24,7 @@ defmodule Elementary.AppcenterDashboardWeb.SubmissionFormLive do
       {:error, message} ->
         {:noreply, assign(socket, url: url, error: message)}
 
-      {:ok, connection} ->
+      {:ok, _connection} ->
         {:noreply, assign(socket, url: url, error: nil)}
     end
   end

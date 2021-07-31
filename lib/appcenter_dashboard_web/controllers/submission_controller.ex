@@ -34,7 +34,7 @@ defmodule Elementary.AppcenterDashboardWeb.SubmissionController do
   end
 
   def status(conn, %{"url" => url}) do
-    with {:ok, connection} <- Service.parse(url) do
+    with {:ok, _connection} <- Service.parse(url) do
       conn
       |> RecentProjectsHelper.add_project(url)
       |> render("status.html")

@@ -17,8 +17,6 @@ defmodule Elementary.AppcenterDashboard.Project do
 
   use GenServer
 
-  alias Elementary.AppcenterDashboard.{Appstream, Reviews}
-
   @type t :: %{
           name: String.t(),
           rdnn: String.t(),

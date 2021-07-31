@@ -5,9 +5,9 @@ defmodule Elementary.AppcenterDashboardWeb.RecentProjectLive do
 
   use Elementary.AppcenterDashboardWeb, :live_view
 
-  alias Elementary.AppcenterDashboard.{Projects, Service}
+  alias Elementary.AppcenterDashboard.Projects
 
-  def mount(_params, %{"current_user" => current_user, "url" => url}, socket) do
+  def mount(_params, %{"current_user" => _current_user, "url" => url}, socket) do
     if pid = Projects.ensure_created(url) do
       {:ok,
        assign(socket,

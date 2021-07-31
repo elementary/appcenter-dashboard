@@ -2,7 +2,6 @@ defmodule Elementary.AppcenterDashboard.Projects do
   @moduledoc """
   Handles the higher level supervising and functions for projects.
   """
-  use GenServer
 
   alias Elementary.AppcenterDashboard.Project
 
