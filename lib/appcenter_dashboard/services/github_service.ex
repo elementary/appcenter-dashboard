@@ -5,7 +5,7 @@ defmodule Elementary.AppcenterDashboard.GitHubService do
 
   @behaviour Elementary.AppcenterDashboard.Service
 
-  @parse_regex ~r/^\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)$/
+  @parse_regex ~r/^\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)/
 
   @impl true
   def parse(%{path: path}) when is_binary(path) do
@@ -38,10 +38,7 @@ defmodule Elementary.AppcenterDashboard.GitHubService do
   end
 
   @impl true
-  def latest_release(%{owner: owner, repository: repository} = connection) do
-    request =
-      Finch.build(:get, "https://api.github.com/repos/#{owner}/#{repository}/releases/latest")
-
+  def latest_release(connection) do
     with {:ok, %{status: status, body: body}} when status in 200..299 <-
            get_latest_release(connection),
          version_tag <- Map.get(body, "tag_name", ""),

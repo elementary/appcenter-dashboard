@@ -31,6 +31,12 @@ defmodule Elementary.AppcenterDashboard.Service do
   @callback default_rdnn(t()) :: {:ok, Project.rdnn()} | {:error, any}
 
   @doc """
+  Returns a normalized and standardized source string. This should parse out
+  back to the same connection.
+  """
+  @callback normalize_source(t()) :: {:ok, String.t()} | {:error, any}
+
+  @doc """
   Fetches the latest version for a connection.
   """
   @callback latest_release(t()) :: {:ok, Version.t()} | {:error, any}
