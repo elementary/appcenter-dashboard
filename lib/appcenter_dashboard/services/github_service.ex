@@ -42,7 +42,7 @@ defmodule Elementary.AppcenterDashboard.GitHubService do
     with {:ok, %{status: status, body: body}} when status in 200..299 <-
            get_latest_release(connection),
          version_tag <- Map.get(body, "tag_name", ""),
-         {:ok, version} <- Version.parse(version_tag) do
+         {:ok, version} <- version_tag |> String.trim_leading("v") |> Version.parse() do
       {:ok, version}
     else
       {:ok, %{status: 404}} -> {:error, "Project does not have a stable release"}
