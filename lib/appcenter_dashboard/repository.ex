@@ -83,7 +83,7 @@ defmodule Elementary.AppcenterDashboard.Repository do
       rdnn: rdnn,
       source: source,
       commit: Map.get(file, "commit"),
-      released_version: file |> Map.get("version") |> Version.parse!()
+      released_version: file |> Map.get("version") |> String.trim_leading("v") |> Version.parse!()
     }
   end
 
