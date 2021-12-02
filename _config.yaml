@@ -1,0 +1,20 @@
+title: "elementary AppCenter Dashboard"
+description: "Resources for designing, developing, and publishing apps for elementary OS"
+permalink: /:title/
+theme-color: "#4c158a"
+gravatar: eaa3cc978770998ea2bd4382935bf0f4
+analytics: https://plausible.io/developer.elementary.io
+
+facebook: elementaryos
+mastodon: elementary
+reddit: elementaryos
+twitter: elementary
+
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+
+exclude: [README.md, Gemfile, Gemfile.lock, vendor]
