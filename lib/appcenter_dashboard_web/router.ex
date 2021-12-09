@@ -24,8 +24,6 @@ defmodule Elementary.AppcenterDashboardWeb.Router do
     get "/submissions/status", SubmissionController, :get
     post "/submissions/status", SubmissionController, :status
 
-    get "/stripe", StripeController, :index
-
     get "/auth/:provider", AuthController, :index
     get "/auth/:provider/callback", AuthController, :callback
     post "/auth/:provider/callback", AuthController, :callback

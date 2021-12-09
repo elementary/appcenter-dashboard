@@ -19,11 +19,14 @@ defmodule Elementary.AppcenterDashboardWeb.SubmissionController do
          {:ok, name} <- Service.friendly_name(connection),
          {:ok, rdnn} <- Service.default_rdnn(connection),
          {:ok, release} <- Service.latest_release(connection) do
+      stripe = get_session(conn, :stripe_account)
+
       render(conn, "add.html", %{
         url: url,
         friendly_name: name,
         release: release,
-        rdnn: rdnn
+        rdnn: rdnn,
+        stripe: stripe
       })
     else
       {:error, message} when is_binary(message) ->
