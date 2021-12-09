@@ -39,7 +39,8 @@ defmodule Elementary.AppcenterDashboardWeb.AuthController do
   defp create_auth_data(%Ueberauth.Auth{provider: :stripe} = auth) do
     %{
       service: :stripe,
-      card_payments_capability?: auth.extra.raw_info.account["capabilities"]["card_payments"] == "active",
+      card_payments_capability?:
+        auth.extra.raw_info.account["capabilities"]["card_payments"] == "active",
       usd_currency_supported?:
         Enum.member?(auth.extra.raw_info.account["currencies_supported"], "usd"),
       name: auth.info.name,
