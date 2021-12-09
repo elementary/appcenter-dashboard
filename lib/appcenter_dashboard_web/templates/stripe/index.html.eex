@@ -1,0 +1,36 @@
+<h1>Hello <%= @stripe.name %>!!!!</h1>
+
+<img
+  alt="<%= @stripe.name %> Stripe account image"
+  src="<%= @stripe.image %>"
+  width="100"
+  height="100"
+/>
+
+<% @stripe.card_payments_capability? %>
+<p>
+  It looks like your account does not yet accept payments. You will need to
+  fully complete your Stripe account setup in order to accept payments from
+  AppCenter.
+</p>
+
+<% @stripe.usd_currency_supported? %>
+<p>
+  It looks like your Stripe account does not yet accept USD payments. This
+  usually means your Stripe account is in a region that is not yet fully
+  supported. In order to accept payments in AppCenter, you will need to wait for
+  Stripe to finalize USD currency in your reagion. You can look at this page for
+  more up to date information:
+
+  https://stripe.com/global
+  https://stripe.com/docs/currencies
+</p>
+
+<p>
+  Thank you for connecting your stripe account! Simply place this code in your
+  application AppStream data and you'll be able to accept payments!
+</p>
+
+<pre>
+  <%= @stripe.public_key %>
+</pre>

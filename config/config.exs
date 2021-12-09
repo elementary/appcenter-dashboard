@@ -38,12 +38,17 @@ config :phoenix, :json_library, Jason
 # Setup Oauth providers
 config :ueberauth, Ueberauth,
   providers: [
-    github: {Ueberauth.Strategy.Github, [allow_private_emails: true, default_scope: ""]}
+    github: {Ueberauth.Strategy.Github, [allow_private_emails: true, default_scope: ""]},
+    stripe: {Ueberauth.Strategy.Stripe, []}
   ]
 
 config :ueberauth, Ueberauth.Strategy.Github.OAuth,
   client_id: System.get_env("GITHUB_CLIENT_ID"),
   client_secret: System.get_env("GITHUB_CLIENT_SECRET")
+
+config :ueberauth, Ueberauth.Strategy.Stripe.OAuth,
+  client_id: System.get_env("STRIPE_OAUTH_CLIENT_ID"),
+  client_secret: System.get_env("STRIPE_SECRET_KEY")
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
