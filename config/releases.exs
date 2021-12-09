@@ -28,3 +28,7 @@ config :appcenter_dashboard, Elementary.AppcenterDashboardWeb.Endpoint,
 config :ueberauth, Ueberauth.Strategy.Github.OAuth,
   client_id: System.get_env("GITHUB_CLIENT_ID"),
   client_secret: System.get_env("GITHUB_CLIENT_SECRET")
+
+config :ueberauth, Ueberauth.Strategy.Stripe.OAuth,
+  client_id: System.get_env("STRIPE_OAUTH_CLIENT_ID"),
+  client_secret: System.get_env("STRIPE_SECRET_KEY")

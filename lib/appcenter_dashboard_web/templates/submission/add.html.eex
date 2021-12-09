@@ -6,13 +6,46 @@
   <p>To enable monetization:</p>
   <ul>
     <li>Set the price as a whole USD value in your app's <code>x-appcenter-suggested-price</code> AppStream key</li>
-    <li>Add this Stripe key to your app's AppStream: <code>pk_foo123bar456baz789bin69420</code></li>
-      <li><a href="">More info</a></li>
+
+    <%= if not is_nil(@stripe) do %>
+      <%= if not @stripe.card_payments_capability? do %>
+        <li>
+          Fully complete your Stripe account setup to accept card payments.
+        </li>
+      <% end %>
+
+      <%= if not @stripe.usd_currency_supported? do %>
+        <li>
+          Wait for Stripe to accept USD payments in your reagion. View the <a href="https://stripe.com/global" rel="noreferrer nofollow" target="_blank">Stripe page</a> for more information.
+        </li>
+      <% end %>
+
+      <%= if @stripe.card_payments_capability? and @stripe.usd_currency_supported? do %>
+        <li>
+          Add this Stripe key to your app's <code>x-appcenter-stripe</code> AppStream:<br/>
+          <pre style="overflow-x:auto;"><code><%= @stripe.public_key %></code></pre>
+        </li>
+        <li>
+          <a href="https://docs.elementary.io/develop/appcenter/monetizing-your-app">More info</a>
+        </li>
+      <% end %>
+    <% else %>
+      <li>
+        <a href="<%= Routes.auth_path(@conn, :index, :stripe) %>">Get a Stripe key</a>
+      </li>
+    <% end %>
   </ul>
 
   <h2>Confirm</h2>
 
   <ul>
+    <%= if not is_nil(@stripe) do %>
+      <li>
+        Stripe Account: <strong><%= @stripe.name %></strong>
+        <a href="<%= Routes.auth_path(@conn, :index, :stripe) %>">(change)</a>
+      </li>
+    <% end %>
+
     <li>Repository: <strong><%= @friendly_name %></strong></li>
     <li>Version: <strong><%= @release.major %>.<%= @release.minor %>.<%= @release.patch %></strong></li>
     <li>Detected RDNN: <strong><%= @rdnn %></strong></li>
