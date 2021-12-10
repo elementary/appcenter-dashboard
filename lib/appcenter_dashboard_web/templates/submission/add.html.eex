@@ -38,6 +38,9 @@
           </p>
           <pre style="overflow-x:auto;"><code><%= @stripe.public_key %></code></pre>
         </li>
+        <li>
+          <p>Make a new release of your app with the above AppStream key updates.</p>
+        </li>
       <% end %>
     <% else %>
       <li>
