@@ -69,7 +69,7 @@
   </ul>
 
   <div class="buttons">
-    <a class="button" href="https://github.com/elementary/appcenter-reviews/pulls">View Review Queue</a>
+    <a class="button" href="https://github.com/elementary/appcenter-reviews/pulls">Check Review Progress</a>
     <a class="button suggested" href="https://github.com/elementary/appcenter-reviews#submitting-an-app">Submit App</a>
   </div>
 </section>
