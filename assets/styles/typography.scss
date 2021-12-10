@@ -58,7 +58,7 @@ a {
   }
 }
 
-main a[target="_blank"] {
+main .submissions a[target="_blank"] {
   @extend .read-more;
 }
 
