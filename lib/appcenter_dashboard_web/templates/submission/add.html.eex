@@ -1,63 +1,70 @@
 <section class="submissions">
   <h1>Submit to AppCenter</h1>
-  <p>Once confirmed, your app’s latest release will be submitted for review and approval by elementary for publishing in AppCenter.</p>
-  <p>Future releases/tags of your app will be automatically submitted for review and approval. Before confirming, ensure your app meets the <a href="https://docs.elementary.io/develop/appcenter/publishing-requirements" target="_blank">Publishing Requirements</a> and has monetization enabled in its AppStream metadata if desired.</p>
+  <p>The previous dashboard for elementary OS 5 and older has been taken offline. New and returning apps may be published to the new Flatpak-based AppCenter here.</p>
+  <p>Ensure your app meets the <a href="https://docs.elementary.io/develop/appcenter/publishing-requirements" target="_blank">Publishing Requirements</a></p>
+  <p>Each new release/tag of your app currently needs to be submitted for review and approval.</p>
 
-  <p>To enable monetization:</p>
-  <ul>
-    <li>Set the price as a whole USD value in your app's <code>x-appcenter-suggested-price</code> AppStream key</li>
+  <h2>Enable Monetization</h2>
+  <p>You can optionally monetize your app by connecting with Stripe. Monetized apps are presented in AppCenter as a pay-what-you-can purchase with your suggested price set as the default.</p>
+  <p><a href="https://docs.elementary.io/develop/appcenter/monetizing-your-app" target="_blank">More info &amp; documentation</a></p>
+  <ol>
+    <li>
+      <p>
+        <strong>Set the suggested price</strong> as a whole USD value in your app's <code>x-appcenter-suggested-price</code> AppStream key.
+      </p>
+    </li>
 
     <%= if not is_nil(@stripe) do %>
       <%= if not @stripe.card_payments_capability? do %>
         <li>
-          Fully complete your Stripe account setup to accept card payments.
+          <p>
+            <strong>Fully complete your Stripe account setup</strong> to accept card payments.
+          </p>
         </li>
       <% end %>
 
       <%= if not @stripe.usd_currency_supported? do %>
         <li>
-          Wait for Stripe to accept USD payments in your reagion. View the <a href="https://stripe.com/global" rel="noreferrer nofollow" target="_blank">Stripe page</a> for more information.
+          <p>
+            <strong>Wait for Stripe to accept USD payments</strong> in your region. View the <a href="https://stripe.com/global" rel="noreferrer nofollow" target="_blank">Stripe page</a> for more information.
+          </p>
         </li>
       <% end %>
 
       <%= if @stripe.card_payments_capability? and @stripe.usd_currency_supported? do %>
         <li>
-          Add this Stripe key to your app's <code>x-appcenter-stripe</code> AppStream:<br/>
+          <p>
+            <strong>Add this Stripe key</strong> to your app's <code>x-appcenter-stripe</code> AppStream key:
+          </p>
           <pre style="overflow-x:auto;"><code><%= @stripe.public_key %></code></pre>
-        </li>
-        <li>
-          <a href="https://docs.elementary.io/develop/appcenter/monetizing-your-app">More info</a>
         </li>
       <% end %>
     <% else %>
       <li>
-        <a href="<%= Routes.auth_path(@conn, :index, :stripe) %>">Get a Stripe key</a>
+        <p>
+          <strong><a href="<%= Routes.auth_path(@conn, :index, :stripe) %>">Connect with Stripe</a></strong>, then return here.
+        </p>
       </li>
     <% end %>
-  </ul>
+  </ol>
 
   <h2>Confirm</h2>
 
   <ul>
+    <li>Repository: <strong><%= @friendly_name %></strong></li>
+    <li>Current version: <strong><%= @release.major %>.<%= @release.minor %>.<%= @release.patch %></strong></li>
+    <li>Detected RDNN: <strong><%= @rdnn %></strong></li>
+
     <%= if not is_nil(@stripe) do %>
       <li>
-        Stripe Account: <strong><%= @stripe.name %></strong>
+        Stripe account: <strong><%= @stripe.name %></strong>
         <a href="<%= Routes.auth_path(@conn, :index, :stripe) %>">(change)</a>
       </li>
     <% end %>
-
-    <li>Repository: <strong><%= @friendly_name %></strong></li>
-    <li>Version: <strong><%= @release.major %>.<%= @release.minor %>.<%= @release.patch %></strong></li>
-    <li>Detected RDNN: <strong><%= @rdnn %></strong></li>
   </ul>
 
-  <%= form_for @conn, Routes.submission_path(Endpoint, :status), fn f -> %>
-    <%= hidden_input f, :url, value: @url %>
-
-    <input
-      class="button suggested"
-      type="submit"
-      value="Confirm Submission"
-    />
-  <% end %>
+  <div class="buttons">
+    <a class="button" href="https://github.com/elementary/appcenter-reviews/pulls">View Review Queue</a>
+    <a class="button suggested" href="https://github.com/elementary/appcenter-reviews#submitting-an-app">Submit App</a>
+  </div>
 </section>

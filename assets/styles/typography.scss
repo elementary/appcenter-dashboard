@@ -34,7 +34,8 @@ a {
   text-decoration-skip-ink: auto;
   transition: opacity 250ms ease;
 
-  &.read-more {
+  &.read-more,
+  &[target="_blank"] {
     font-size: 0.9em;
 
     &::after {
