@@ -58,6 +58,10 @@ a {
   }
 }
 
+main .submissions a[target="_blank"] {
+  @extend .read-more;
+}
+
 h1,
 h2,
 h3,
