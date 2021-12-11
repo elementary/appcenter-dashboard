@@ -50,6 +50,10 @@ config :ueberauth, Ueberauth.Strategy.Stripe.OAuth,
   client_id: System.get_env("STRIPE_OAUTH_CLIENT_ID"),
   client_secret: System.get_env("STRIPE_SECRET_KEY")
 
+config :appcenter_dashboard, Elementary.AppcenterDashboard.Cloudflare,
+  account_id: System.get_env("CLOUDFLARE_ACCOUNT_ID"),
+  api_key: System.get_env("CLOUDFLARE_API_KEY")
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

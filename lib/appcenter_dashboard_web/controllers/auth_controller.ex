@@ -5,6 +5,7 @@ defmodule Elementary.AppcenterDashboardWeb.AuthController do
 
   use Elementary.AppcenterDashboardWeb, :controller
 
+  alias Elementary.AppcenterDashboard.Cloudflare
   alias Ueberauth.Strategy.Helpers
 
   plug Ueberauth
@@ -37,7 +38,7 @@ defmodule Elementary.AppcenterDashboardWeb.AuthController do
   end
 
   defp create_auth_data(%Ueberauth.Auth{provider: :stripe} = auth) do
-    %{
+    result = %{
       service: :stripe,
       card_payments_capability?:
         auth.extra.raw_info.account["capabilities"]["card_payments"] == "active",
@@ -48,6 +49,10 @@ defmodule Elementary.AppcenterDashboardWeb.AuthController do
       account_id: auth.extra.raw_info.token.other_params["stripe_user_id"],
       public_key: auth.extra.raw_info.token.other_params["stripe_publishable_key"]
     }
+
+    Cloudflare.put(result.public_key, result.account_id)
+
+    result
   end
 
   defp create_auth_data(%Ueberauth.Auth{} = auth) do
