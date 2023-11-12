@@ -48,7 +48,7 @@ defmodule Elementary.AppcenterDashboard.MixProject do
       {:telemetry_metrics, "~> 0.4"},
       {:telemetry_poller, "~> 0.4"},
       {:ueberauth_github, "~> 0.8.1"},
-      {:ueberauth, "~> 0.10.5"}
+      {:ueberauth, "~> 0.7.0"}
     ]
   end
 
