@@ -24,7 +24,7 @@ RUN cd /opt/app && \
   mix local.rebar --force && \
   mix deps.get
 
-RUN export NODE_OPTIONS=--openssl-legacy-provider
+ENV NODE_OPTIONS=--openssl-legacy-provider
 RUN npm install npm -g --no-progress && \
   cd /opt/app/assets && \
   npm ci && \
