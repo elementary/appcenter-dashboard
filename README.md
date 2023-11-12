@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://beta.developer.elementary.io" align="center">
+  <a href="https://developer.elementary.io" align="center">
     <center align="center">
       <img src="https://raw.githubusercontent.com/elementary/houston/v2/brand/AppCenter.png" alt="AppCenter" align="center">
     </center>
@@ -13,7 +13,7 @@
 
 ---
 
-This repository is an elixir website for `https://beta.developer.elementary.io`.
+This repository is an elixir website for `https://developer.elementary.io`.
 It does some high level work for publishing applications to the elementary
 AppCenter.
 
