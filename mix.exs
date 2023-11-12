@@ -33,7 +33,7 @@ defmodule Elementary.AppcenterDashboard.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:credo, "~> 1.6.7", only: :dev, runtime: false},
+      {:credo, "~> 1.7.1", only: :dev, runtime: false},
       {:git_cli, "~> 0.3"},
       {:finch, "~> 0.7"},
       {:floki, ">= 0.30.0"},
@@ -48,7 +48,7 @@ defmodule Elementary.AppcenterDashboard.MixProject do
       {:telemetry_metrics, "~> 0.4"},
       {:telemetry_poller, "~> 0.4"},
       {:ueberauth_github, "~> 0.8.1"},
-      {:ueberauth, "~> 0.7.0"}
+      {:ueberauth, "~> 0.10.5"}
     ]
   end
 
