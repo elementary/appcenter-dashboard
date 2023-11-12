@@ -26,6 +26,7 @@ RUN cd /opt/app && \
   MIX_ENV=dev mix deps.compile --all && \
   MIX_ENV=test mix deps.compile --all
 
+RUN export NODE_OPTIONS=--openssl-legacy-provider
 RUN npm install npm -g --no-progress && \
   cd /opt/app/assets && \
   npm ci
