@@ -1,7 +1,7 @@
 # Dockerfile
 # Building for production
 
-FROM elixir:1.14.2-alpine as build
+FROM elixir:1.15.7-alpine as build
 
 RUN mkdir -p /opt/app
 
@@ -24,6 +24,7 @@ RUN cd /opt/app && \
   mix local.rebar --force && \
   mix deps.get
 
+ENV NODE_OPTIONS=--openssl-legacy-provider
 RUN npm install npm -g --no-progress && \
   cd /opt/app/assets && \
   npm ci && \
@@ -35,7 +36,7 @@ RUN mix release
 # Dockerfile
 # Runing in production
 
-FROM elixir:1.14.2-alpine as release
+FROM elixir:1.15.7-alpine as release
 
 RUN apk add --no-cache bash git openssh openssl
 
