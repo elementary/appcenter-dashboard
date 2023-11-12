@@ -32,7 +32,7 @@
   </li>
 
   <li>
-    <a href="https://elementary.io/team" target="_self">
+    <a href="https://github.com/orgs/elementary/people" target="_self">
       <%= dgettext "layout", "Team" %>
     </a>
   </li>
