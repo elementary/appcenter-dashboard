@@ -53,7 +53,7 @@
           <li>No enrollment fees or subscription costs.</li>
         </ul>
       </div>
-      <a class="read-more" href="https://github.com/elementary/houston/wiki/Monetizing-Your-App" target="_blank">More about monetization</a>
+      <a class="read-more" href="https://docs.elementary.io/develop/appcenter/monetizing-your-app" target="_blank">More about monetization</a>
     </div>
 
     <div>
@@ -69,7 +69,7 @@
           <li>Track review feedback with GitHub Pull Requests.</li>
         </ul>
       </div>
-      <a class="read-more" href="https://github.com/elementary/houston/wiki/Submission-Process" target="_blank">More about app submission</a>
+      <a class="read-more" href="https://docs.elementary.io/develop/appcenter/submission-process" target="_blank">More about app submission</a>
     </div>
   </div>
 </section>
