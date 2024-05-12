@@ -33,7 +33,7 @@
       <li>Define your app's keywords, categories, and subcategories to help people find it.</li>
       <li>With built-in social media sharing and app URLs, users can easily share your app right from AppCenter.</li>
     </ul>
-    <a class="read-more" href="https://docs.elementary.io/develop/writing-apps/untitled#the-desktop-file" target="_blank">Learn more about app metadata</a>
+    <a class="read-more" href="https://docs.elementary.io/develop/writing-apps/our-first-app/metadata" target="_blank">Learn more about app metadata</a>
   </div>
 </section>
 
