@@ -100,6 +100,7 @@
     padding-top: 6em;
     padding-bottom: 6em;
   }
+
   background-color: var(--secondary-bg-color);
   display: grid;
   grid-gap: 3em 1em;
@@ -116,6 +117,7 @@
       display: flex;
       padding-bottom: 0;
     }
+
     grid-gap: 6em;
     flex-direction: row;
     justify-content: space-between;
