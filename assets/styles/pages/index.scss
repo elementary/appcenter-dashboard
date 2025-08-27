@@ -78,7 +78,6 @@
 
   h2 {
     margin: 0;
-    text-align: left;
   }
 
   ul {
@@ -97,11 +96,16 @@
 }
 
 .monetize {
+  @media (min-width: 992px) {
+    padding-top: 6em;
+    padding-bottom: 6em;
+  }
+
   background-color: var(--secondary-bg-color);
   display: grid;
   grid-gap: 3em 1em;
-  padding-bottom: 6em;
-  padding-top: 6em;
+  padding-bottom: 0.25em;
+  padding-top: 3em;
 
   > h2 {
     margin: 0 auto;
@@ -109,7 +113,11 @@
   }
 
   > div {
-    display: flex;
+    @media (min-width: 992px) {
+      display: flex;
+      padding-bottom: 0;
+    }
+
     grid-gap: 6em;
     flex-direction: row;
     justify-content: space-between;
@@ -123,6 +131,7 @@
         display: block;
         margin-top: 2em;
         text-align: center;
+        padding-bottom: 2em;
       }
 
       .card {
