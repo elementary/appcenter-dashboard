@@ -37,7 +37,7 @@ defmodule Elementary.AppcenterDashboard.MixProject do
       {:git_cli, "~> 0.3"},
       {:finch, "~> 0.7"},
       {:floki, ">= 0.30.0"},
-      {:gettext, "~> 0.11"},
+      {:gettext, "~> 1.0"},
       {:jason, "~> 1.0"},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_dashboard, "~> 0.4"},
